@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FacebookApp</string>
+    
+    <string name="login_phone_hint">Phone or email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_login_btn">Log In</string>
+    <string name="login_forgot_btn">Forgot Password?</string>
+    <string name="login_or">OR</string>
+    <string name="login_create_btn">Create New Facebook Account</string>
+</resources>

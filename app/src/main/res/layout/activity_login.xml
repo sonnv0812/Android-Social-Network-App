@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.LoginActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -27,8 +27,7 @@
 
     <EditText
         android:id="@+id/edit_phone_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/loginEditText"
         android:hint="@string/login_phone_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +38,7 @@
 
     <EditText
         android:id="@+id/edit_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/loginEditText"
         android:hint="@string/login_password_hint"
         android:inputType="textPassword"
         android:layout_marginTop="@dimen/margin_login"
@@ -51,14 +49,10 @@
 
     <Button
         android:id="@+id/button_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/loginButton"
+        android:background="@color/colorBlue"
         android:text="@string/login_login_btn"
         android:layout_marginTop="@dimen/margin_login"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorBlue"
-        android:textStyle="bold"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edit_phone_email"
         app:layout_constraintStart_toStartOf="@+id/edit_phone_email"
         app:layout_constraintTop_toBottomOf="@+id/edit_password" />
@@ -67,17 +61,17 @@
         android:id="@+id/button_forgot_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/login_forgot_btn"
         android:layout_marginTop="@dimen/margin_login"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlue"
-        android:textSize="16sp"
         android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
+        android:text="@string/login_forgot_btn"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/size_login_sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/edit_phone_email"
         app:layout_constraintStart_toStartOf="@+id/edit_phone_email"
-        app:layout_constraintTop_toBottomOf="@+id/button_login"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
     <View
         android:layout_width="0dp"
@@ -93,9 +87,9 @@
         android:id="@+id/text_or"
         android:layout_width="@dimen/margin_login"
         android:layout_height="wrap_content"
-        android:text="@string/login_or"
         android:background="@color/colorWhite"
         android:gravity="center"
+        android:text="@string/login_or"
         app:layout_constraintBottom_toTopOf="@+id/button_create_account"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
         app:layout_constraintStart_toStartOf="@+id/button_login"
@@ -103,14 +97,12 @@
 
     <Button
         android:id="@+id/button_create_account"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/login_create_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/margin_login"
-        android:textStyle="bold"
+        style="@style/loginButton"
         android:background="@color/colorJewel"
+        android:text="@string/login_create_btn"
         android:textColor="@color/colorWhite"
+        android:layout_marginBottom="@dimen/margin_login"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button_forgot_password"
         app:layout_constraintStart_toStartOf="@+id/button_forgot_password" />
 

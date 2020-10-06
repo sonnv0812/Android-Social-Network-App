@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">FacebookApp</string>
-    
+    <string name="app_name">Facebook</string>
+
     <string name="login_phone_hint">Phone or email</string>
     <string name="login_password_hint">Password</string>
     <string name="login_login_btn">Log In</string>
     <string name="login_forgot_btn">Forgot Password?</string>
     <string name="login_or">OR</string>
     <string name="login_create_btn">Create New Facebook Account</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_video">Video</string>
+    <string name="nav_group">Group</string>
+    <string name="nav_menu">Account</string>
+    <string name="nav_notification">Notification</string>
+
+    <string name="toolbar_search">Search</string>
+    <string name="toolbar_message">Message</string>
 </resources>

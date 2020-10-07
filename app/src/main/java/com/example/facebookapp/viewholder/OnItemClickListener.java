@@ -5,5 +5,5 @@ import android.view.View;
 import com.example.facebookapp.model.PostModel;
 
 public interface OnItemClickListener {
-    void onClick(PostModel view, int position);
+    void onClick(View view, int position);
 }

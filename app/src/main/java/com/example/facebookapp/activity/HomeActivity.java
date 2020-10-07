@@ -9,12 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 
-import android.widget.Toolbar;
-
 import com.example.facebookapp.R;
 import com.example.facebookapp.adapter.Fragments;
 import com.example.facebookapp.adapter.PagerHomeAdapter;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 

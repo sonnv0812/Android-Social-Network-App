@@ -7,8 +7,4 @@ public class VideoFragment extends Fragment {
 
     }
 
-    public static VideoFragment newInstance() {
-        VideoFragment videoFragment = new VideoFragment();
-        return videoFragment;
-    }
 }

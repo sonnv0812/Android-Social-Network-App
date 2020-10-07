@@ -20,13 +20,10 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerHome;
     private PostAdapter postAdapter = new PostAdapter();
+
     public HomeFragment() {
     }
 
-    public static HomeFragment newInstance() {
-        HomeFragment homeFragment = new HomeFragment();
-        return homeFragment;
-    }
 
     @Nullable
     @Override

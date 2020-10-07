@@ -1,6 +1,5 @@
 package com.example.facebookapp.viewholder;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
@@ -14,12 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.facebookapp.R;
 import com.example.facebookapp.model.PostModel;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
 
-import java.util.Calendar;
+import java.util.List;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
-    private PostModel itemData;
 
     private ImageView imageAvatar;
     private TextView textName;
@@ -28,7 +25,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     private TextView textNumberLike;
     private Button buttonLike;
 
-    public PostViewHolder(@NonNull View itemView) {
+    private OnItemClickListener itemClickListener;
+
+    public PostViewHolder(@NonNull final View itemView) {
         super(itemView);
 
         imageAvatar = itemView.findViewById(R.id.image_avatar);
@@ -37,8 +36,12 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         textPost = itemView.findViewById(R.id.text_post);
         textNumberLike = itemView.findViewById(R.id.text_numberLike);
         buttonLike = itemView.findViewById(R.id.button_like);
+
     }
 
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
 
     public void bindData(final PostModel postModel) {
         Picasso.get().load(Uri.parse(postModel.getAvatar())).into(imageAvatar);
@@ -52,13 +55,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             buttonLike.setTextColor(Color.BLUE);
         else
             buttonLike.setTextColor(Color.BLACK);
-        buttonLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isLike = postModel.isLike();
-                postModel.setLike(!isLike);
 
-            }
-        });
     }
+
 }

@@ -25,4 +25,6 @@
     <string name="post_demo_time">2h ago</string>
     <string name="post_demo_post">Hai lớp B và C cùng kế thừa từ một lớp cha là lớp A, giả sử B và C overriding phương thức của lớp A (overriding tức là B và C không những cùng kế thừa một phương thức nào đó từ lớp A mà còn sửa lại phương thức đã kế thừa đó tùy thuộc vào B hoặc C). Khi D tiếp tục kế thừa phương thức này từ B và C, D không biết sẽ chọn chọn phương thức của lớp B hay của phương thức của C để kế thừa.</string>
     <string name="post_demo_numberLike">2,3K</string>
+
+    <string name="notification_demo_text">Nghĩa Đinh mentioned you in a comment</string>
 </resources>

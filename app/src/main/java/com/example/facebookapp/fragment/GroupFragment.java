@@ -7,8 +7,4 @@ public class GroupFragment extends Fragment {
 
     }
 
-    public static GroupFragment newInstance() {
-        GroupFragment groupFragment = new GroupFragment();
-        return  groupFragment;
-    }
 }

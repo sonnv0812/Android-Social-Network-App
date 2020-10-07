@@ -73,10 +73,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void confirmInput() {
-        if(!phoneEmail.equals("vansonducchinh@gmail.com")) {
+        if(!phoneEmail.equals("1")) {
             return;
         }
-        else if(!password.equals("123456")) {
+        else if(!password.equals("1")) {
             return;
         }
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);

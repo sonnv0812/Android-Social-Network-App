@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.model.PostModel;
+import com.example.facebookapp.viewholder.OnItemClickListener;
 import com.example.facebookapp.viewholder.PostViewHolder;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PostViewHolder holder, int position) {
         holder.bindData(posts.get(position));
     }
 

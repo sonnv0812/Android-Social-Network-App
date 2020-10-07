@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnCreateAccount = findViewById(R.id.button_create_account);
         editPhone = findViewById(R.id.edit_phone_email);
         editPassword = findViewById(R.id.edit_password);
+
+
     }
 
     @Override

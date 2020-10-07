@@ -1,36 +1,46 @@
 package com.example.facebookapp.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
+
+import android.widget.Toolbar;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.fragment.GroupFragment;
-import com.example.facebookapp.fragment.HomeFragment;
-import com.example.facebookapp.fragment.MenuAccountFragment;
-import com.example.facebookapp.fragment.NotificationFragment;
-import com.example.facebookapp.fragment.VideoFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.facebookapp.adapter.Fragments;
+import com.example.facebookapp.adapter.PagerHomeAdapter;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
+
 
 public class HomeActivity extends AppCompatActivity {
 
-    ActionBar actionBar;
-    BottomNavigationView bottomNavView;
+    private ViewPager viewPager;
+    private PagerHomeAdapter pagerHomeAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        actionBar = getSupportActionBar();
-        bottomNavView = findViewById(R.id.menu_navigation);
-        bottomNavView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        pagerHomeAdapter = new PagerHomeAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+
+        viewPager = findViewById(R.id.view_pager_home);
+        viewPager.setAdapter(pagerHomeAdapter);
+
+        TabLayout tabLayout = findViewById(R.id.tab_layout_home);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(Fragments.HOME).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(Fragments.VIDEO).setIcon(R.drawable.ic_video);
+        tabLayout.getTabAt(Fragments.NOTIFICATION).setIcon(R.drawable.ic_notifications);
+        tabLayout.getTabAt(Fragments.GROUP).setIcon(R.drawable.ic_group);
+        tabLayout.getTabAt(Fragments.MENU).setIcon(R.drawable.ic_menu);
     }
 
     @Override
@@ -39,32 +49,4 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
-
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
-
-                    switch (item.getItemId()) {
-                        case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
-                            break;
-                        case R.id.nav_video:
-                            selectedFragment = new VideoFragment();
-                            break;
-                        case R.id.nav_notification:
-                            selectedFragment = new NotificationFragment();
-                            break;
-                        case R.id.nav_group:
-                            selectedFragment = new GroupFragment();
-                            break;
-                        case R.id.nav_menu_account:
-                            selectedFragment = new MenuAccountFragment();
-                            break;
-                    }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                    return true;
-                }
-            };
 }

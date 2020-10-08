@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.facebookapp.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnLogin;
     private Button btnCreateAccount;
-    private EditText editPhone;
-    private EditText editPassword;
+    private TextInputLayout editPhone, editPassword;
 
     private String phoneEmail;
     private String password;
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogin = findViewById(R.id.button_login);
         btnCreateAccount = findViewById(R.id.button_create_account);
-        editPhone = findViewById(R.id.edit_phone_email);
+        editPhone = findViewById(R.id.edit_phone);
         editPassword = findViewById(R.id.edit_password);
 
 
@@ -42,34 +42,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin.setOnClickListener((View.OnClickListener) this);
         btnCreateAccount.setOnClickListener((View.OnClickListener) this);
 
-        editPhone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                phoneEmail = s.toString();
-            }
-        });
-        editPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                password = s.toString();
-            }
-        });
     }
 
     private void confirmInput() {
@@ -89,6 +61,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (id) {
             case R.id.button_login:
                 confirmInput();
+                break;
+            case R.id.button_create_account:
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
                 break;
         }
     }

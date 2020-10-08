@@ -8,6 +8,10 @@
     <string name="login_or">OR</string>
     <string name="login_create_btn">Create New Facebook Account</string>
 
+    <string name="signup_confirm_pass_hint">Confirm password</string>
+    <string name="signup_btn">Create account</string>
+    <string name="signup_text">Create your account</string>
+
     <string name="nav_home">Home</string>
     <string name="nav_video">Video</string>
     <string name="nav_group">Group</string>

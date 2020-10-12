@@ -1,29 +1,42 @@
 package com.example.facebookapp.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.facebookapp.R;
+import com.example.facebookapp.model.AccountModel;
+import com.example.facebookapp.network.ApiService;
+import com.example.facebookapp.network.RetrofitClient;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class SignupActivity extends AppCompatActivity {
 
+    private static final String TAG = "SignUpActivity.class";
     private final String PHONE_ERROR = "Enter your phone number or your email";
+
+    private ApiService mService;
 
     private String phone;
     private String password;
     private String confirmPassword;
 
-    private EditText editPhone;
-    private EditText editPassword;
-    private EditText editConfirmPassword;
-    private Button buttonSignup;
+    private TextInputLayout editPhone, editPassword, editConfirmPassword;
+    private Button buttonSignUp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,84 +46,38 @@ public class SignupActivity extends AppCompatActivity {
         editPhone = findViewById(R.id.edit_phone_signup);
         editPassword = findViewById(R.id.edit_password_signup);
         editConfirmPassword = findViewById(R.id.edit_confirm_password);
-        buttonSignup = findViewById(R.id.button_signup);
+        buttonSignUp = findViewById(R.id.button_signup);
+        mService = RetrofitClient.getInstance().create(ApiService.class);
     }
 
+    @SuppressLint("CommitPrefEdits")
     @Override
     protected void onResume() {
         super.onResume();
+        SharedPreferences sharedPreferences = getSharedPreferences("SignUpPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editPhone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+        phone = editPhone.getEditText().getText().toString();
+        password = editPassword.getEditText().getText().toString();
+        confirmPassword = editConfirmPassword.getEditText().getText().toString();
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                phone = s.toString();
-                if (phone.length() != 10 || phone.charAt(0) != '0') {
-                    phone = null;
-                    editPhone.setError(PHONE_ERROR);
-                }
-            }
-        });
-
-        editPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String tempPassword = s.toString();
-                if (tempPassword.length() < 6)
-                    editPassword.setError("Too short");
-                if (tempPassword.length() > 10)
-                    editPassword.setError("Too long");
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                password = s.toString();
-                if (password.equals(phone)) {
-                    password = null;
-                    editPassword.setError("Is not duplicate");
-                }
-            }
-        });
-
-        editConfirmPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                confirmPassword = s.toString();
-            }
-        });
-
-        buttonSignup.setOnClickListener(new View.OnClickListener() {
+        Objects.requireNonNull(editPhone.getEditText()).setText(phone);
+        Objects.requireNonNull(editPassword.getEditText()).setText(password);
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!password.equals(confirmPassword)) {
-                    editPassword.setText("");
-                    editConfirmPassword.setText("");
-                    editConfirmPassword.setError("Retype incorrect");
-                    buttonSignup.setEnabled(false);
-                }
-                if (editPhone.getError() != null || editPassword.getError() != null) {
-                    buttonSignup.setEnabled(false);
-                    Toast.makeText(getApplicationContext(), "Retype your account", Toast.LENGTH_LONG).show();
-                }
+                mService.signUp(phone, password, "23854")
+                        .enqueue(new Callback<AccountModel>() {
+                            @Override
+                            public void onResponse(Call<AccountModel> call, Response<AccountModel> response) {
+                                Log.d(TAG, "onResponse: " + response.body().toString());;
+                            }
+
+                            @Override
+                            public void onFailure(Call<AccountModel> call, Throwable t) {
+                                Log.d(TAG, "onFailure: " + t.getMessage());
+                            }
+                        });
             }
         });
     }

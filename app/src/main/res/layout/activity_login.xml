@@ -31,21 +31,19 @@
         android:layout_margin="@dimen/margin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:counterMaxLength="10"
         app:layout_constraintTop_toBottomOf="@+id/image_view_login">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/login_phone_hint" />
+            android:hint="@string/login_phone_hint"
+            tools:ignore="TextFields"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_password"
         style="@style/loginEditText"
-        app:counterMaxLength="10"
-        android:layout_marginTop="@dimen/margin_login"
         app:layout_constraintEnd_toEndOf="@+id/edit_phone"
         app:layout_constraintStart_toStartOf="@+id/edit_phone"
         app:layout_constraintTop_toBottomOf="@+id/edit_phone"
@@ -55,7 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_password_hint"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:ignore="TextFields"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

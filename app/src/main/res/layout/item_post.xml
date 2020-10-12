@@ -108,6 +108,7 @@
         android:layout_marginTop="@dimen/margin_all_8dp"
         android:background="@color/colorWhite"
         android:text="@string/menu_post_like"
+        android:textColor="@color/like_button_color"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_ic_like" />

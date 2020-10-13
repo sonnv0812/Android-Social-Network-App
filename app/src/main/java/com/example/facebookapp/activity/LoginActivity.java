@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 confirmInput();
                 break;
             case R.id.button_create_account:
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 break;
         }

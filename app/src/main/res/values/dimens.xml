@@ -4,7 +4,9 @@
     <dimen name="size_login_sp">16sp</dimen>
     <dimen name="margin_all_8dp">8dp</dimen>
 
-    <dimen name="size_signup_sp">26sp</dimen>
+    <dimen name="size_signUp_sp">26sp</dimen>
+    <dimen name="margin_signUp">16dp</dimen>
+    <dimen name="size_editText_signUp_sp">20sp</dimen>
 
     <dimen name="size_avaPost_dp">32dp</dimen>
     <dimen name="height_post_button">30dp</dimen>

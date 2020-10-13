@@ -26,29 +26,32 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_phone_signup"
+        android:id="@+id/edit_phone_signUp_textLayout"
         style="@style/loginEditText"
         android:layout_margin="@dimen/margin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edit_phone_signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_phone_hint"
             android:inputType="text"
-            tools:ignore="TextFields" />
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_password_signup"
+        android:id="@+id/edit_password_signUp_textLayout"
         style="@style/loginEditText"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signup"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone_signup"
-        app:layout_constraintTop_toBottomOf="@+id/edit_phone_signup">
+        android:layout_marginTop="@dimen/margin_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone_signUp_textLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edit_password_signUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_login"
@@ -59,40 +62,52 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_confirm_password"
+        android:id="@+id/edit_confirm_password_textLayout"
         style="@style/loginEditText"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signup"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone_signup"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_signup">
+        android:layout_marginTop="@dimen/margin_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_signUp_textLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edit_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_login"
             android:autofillHints=""
-            android:hint="@string/signup_confirm_pass_hint"
+            android:hint="@string/signUp_confirm_pass_hint"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button_signup"
+        android:id="@+id/button_signUp"
         style="@style/loginButton"
         android:background="@color/colorBlue"
-        android:text="@string/signup_btn"
+        android:text="@string/signUp_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/margin_login"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signup"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone_signup" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_login"
-        android:text="@string/signup_text"
-        android:textSize="@dimen/size_signup_sp"
+        android:text="@string/signUp_text"
+        android:textSize="@dimen/size_signUp_sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone_signup"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
         app:layout_constraintTop_toBottomOf="@+id/image_view_login" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button_signUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_confirm_password_textLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

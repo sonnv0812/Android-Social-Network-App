@@ -12,6 +12,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="errorEnabled">true</item>
         <item name="hintEnabled">true</item>
+        <item name="android:textSize">@dimen/size_editText_signUp_sp</item>
     </style>
 
     <style name="loginButton">

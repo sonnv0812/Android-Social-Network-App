@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         pagerHomeAdapter = new PagerHomeAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = findViewById(R.id.view_pager_home);
         viewPager.setAdapter(pagerHomeAdapter);
 

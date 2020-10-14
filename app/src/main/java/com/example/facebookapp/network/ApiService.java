@@ -9,10 +9,11 @@ import retrofit2.http.Query;
 public interface ApiService {
     @POST("signup")
     Call<AccountModel> signUp(@Query("phonenumber") String phoneNumber,
-                                @Query("password") String password,
-                                @Query("uuid") String uuid);
+                              @Query("password") String password,
+                              @Query("uuid") String uuid);
 
     @POST("login")
     Call<AccountModel> login(@Query("phonenumber") String phoneNumber,
-                             @Query("password") String password);
+                             @Query("password") String password,
+                             @Query("uuid") String uuid);
 }

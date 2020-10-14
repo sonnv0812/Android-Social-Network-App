@@ -31,4 +31,7 @@
     <string name="post_demo_numberLike">2,3K</string>
 
     <string name="notification_demo_text">Nghĩa Đinh mentioned you in a comment</string>
+
+    <string name="signUp_error_format_input">Format Error</string>
+    <string name="login_invalid">User is not invalid</string>
 </resources>

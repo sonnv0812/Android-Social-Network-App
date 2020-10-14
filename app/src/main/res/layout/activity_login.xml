@@ -26,14 +26,15 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_phone"
+        android:id="@+id/edit_phone_layout"
         style="@style/loginEditText"
         android:layout_margin="@dimen/margin_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view_login">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edit_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_phone_hint"
@@ -42,15 +43,16 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_password"
+        android:id="@+id/edit_password_layout"
         style="@style/loginEditText"
-        android:layout_marginTop="@dimen/margin_login"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_phone"
+        android:layout_marginTop="@dimen/margin_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_layout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_layout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone_layout"
         app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edit_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_password_hint"
@@ -64,9 +66,9 @@
         android:layout_marginTop="@dimen/margin_login"
         android:background="@color/colorBlue"
         android:text="@string/login_login_btn"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_layout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_layout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_layout" />
 
     <TextView
         android:id="@+id/button_forgot_password"
@@ -80,8 +82,8 @@
         android:textColor="@color/colorBlue"
         android:textSize="@dimen/size_login_sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/edit_phone"
-        app:layout_constraintStart_toStartOf="@+id/edit_phone"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_layout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_layout"
         app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
     <View

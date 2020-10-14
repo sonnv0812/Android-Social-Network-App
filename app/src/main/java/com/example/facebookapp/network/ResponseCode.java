@@ -8,5 +8,6 @@ public interface ResponseCode {
     public String PARAMETER_VALUE_IS_INVALID = "1004";
     public String UNKNOWN_ERROR = "1005";
 
+    public String USER_IS_NOT_INVALID = "9995";
     public String USER_EXISTED = "9996";
 }

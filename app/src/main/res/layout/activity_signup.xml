@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity"
+    android:id="@+id/layout_display_signUp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/image_view_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/login"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_phone_signUp_textLayout"
+        style="@style/loginEditText"
+        android:layout_margin="@dimen/margin_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <EditText
+            android:id="@+id/edit_phone_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/login_phone_hint"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_password_signUp_textLayout"
+        style="@style/loginEditText"
+        android:layout_marginTop="@dimen/margin_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone_signUp_textLayout">
+
+        <EditText
+            android:id="@+id/edit_password_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_login"
+            android:autofillHints=""
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_confirm_password_textLayout"
+        style="@style/loginEditText"
+        android:layout_marginTop="@dimen/margin_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_signUp_textLayout">
+
+        <EditText
+            android:id="@+id/edit_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_login"
+            android:autofillHints=""
+            android:hint="@string/signUp_confirm_pass_hint"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_signUp"
+        style="@style/loginButton"
+        android:layout_marginBottom="@dimen/margin_login"
+        android:background="@color/colorBlue"
+        android:text="@string/signUp_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_login"
+        android:text="@string/signUp_text"
+        android:textSize="@dimen/size_signUp_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_signUp_textLayout"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_login" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_signUp"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="30dp"
+        android:padding="100dp"
+        android:background="@color/colorBackgroundProgress"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

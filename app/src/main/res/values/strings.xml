@@ -8,6 +8,10 @@
     <string name="login_or">OR</string>
     <string name="login_create_btn">Create New Facebook Account</string>
 
+    <string name="signUp_confirm_pass_hint">Confirm password</string>
+    <string name="signUp_btn">Create account</string>
+    <string name="signUp_text">Create your account</string>
+
     <string name="nav_home">Home</string>
     <string name="nav_video">Video</string>
     <string name="nav_group">Group</string>
@@ -27,4 +31,13 @@
     <string name="post_demo_numberLike">2,3K</string>
 
     <string name="notification_demo_text">Nghĩa Đinh mentioned you in a comment</string>
+
+    <string name="error_input_account">Format Error</string>
+    <string name="error_login_invalid">User is not invalid</string>
+    <string name="error_no_network">No Internet Connection</string>
+    <string name="error_phone_existed">Phone number or email is existed!!!</string>
+    <string name="error_confirm_password">Confirm password is incorrect</string>
+
+    <string name="notify_login_successful">Login successful</string>
+    <string name="notify_create_account_successful">Create account successful</string>
 </resources>

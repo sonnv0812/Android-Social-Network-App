@@ -9,5 +9,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorJewel">#0E7126</color>
     
-    <color name="colorBackgroundProgress">#919090</color>
+    <color name="colorBackgroundProgress">#4D000000</color>
 </resources>

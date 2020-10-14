@@ -15,7 +15,7 @@ public class CheckValidate {
     }
 
     public boolean validateAccount(String phone, String password) {
-        if (!phone.isEmpty() && !password.isEmpty() && isValidMail(phone) && isValidMobile(phone))
+        if (!phone.isEmpty() && !password.isEmpty())
             return true;
         return false;
     }

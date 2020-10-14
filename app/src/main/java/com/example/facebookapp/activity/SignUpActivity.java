@@ -34,9 +34,6 @@ import retrofit2.Response;
 public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = "SignUpActivity.this";
-    private static final String NOT_ENOUGH = "Not enough information";
-    private static final String FORMAT_ERROR = "Format error";
-    private static final String CONFIRM_ERROR = "Confirm password is incorrect";
 
     private ApiService mService;
     private ProgressBar progressBar;
@@ -84,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (checkValidate.isValidMobile(temp) || checkValidate.isValidMail(temp))
                     editPhoneLayout.setError(null);
                 else
-                    editPhoneLayout.setError(FORMAT_ERROR);
+                    editPhoneLayout.setError(getApplicationContext().getString(R.string.error_input_account));
             }
 
             @Override
@@ -92,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
                 phone = s.toString();
             }
         });
+
         editPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -101,7 +99,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String passwordEntering = s.toString();
                 if (!checkValidate.isValidPassword(passwordEntering, phone))
-                    editPasswordLayout.setError(FORMAT_ERROR);
+                    editPasswordLayout.setError(getApplicationContext().getString(R.string.error_input_account));
                 else
                     editPasswordLayout.setError(null);
             }
@@ -111,6 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
                 password = s.toString();
             }
         });
+
         editConfirmPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -120,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String tempConfirmPass = s.toString();
                 if (!tempConfirmPass.equals(password))
-                    editConfirmLayout.setError(CONFIRM_ERROR);
+                    editConfirmLayout.setError(getApplicationContext().getString(R.string.error_confirm_password));
                 else
                     editConfirmLayout.setError(null);
             }
@@ -130,6 +129,7 @@ public class SignUpActivity extends AppCompatActivity {
                 confirmPassword = s.toString();
             }
         });
+
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,12 +145,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 Log.d(TAG, "onResponse: " + codeResponse);
                                 switch (codeResponse) {
                                     case ResponseCode.OK:
-                                        Toast.makeText(getApplicationContext(), "Create account successful", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), R.string.notify_create_account_successful, Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                         break;
                                     case ResponseCode.USER_EXISTED:
-                                        editPhoneLayout.setError("Phone number or email is existed!!!");
+                                        editPhoneLayout.setError(getApplicationContext().getString(R.string.error_phone_existed));
                                         break;
                                 }
                             }

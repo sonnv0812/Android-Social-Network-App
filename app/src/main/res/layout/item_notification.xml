@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/image_ava_notification"
-        android:layout_width="@dimen/size_ava_notification_dp"
-        android:layout_height="@dimen/size_ava_notification_dp"
+        android:layout_width="@dimen/size_ava_dp"
+        android:layout_height="@dimen/size_ava_dp"
         android:layout_marginStart="@dimen/margin_all_8dp"
         android:layout_marginLeft="@dimen/margin_all_8dp"
         android:layout_marginTop="@dimen/margin_all_8dp"

@@ -9,12 +9,14 @@ public class CheckValidate {
         return Pattern.compile(EMAIL_STRING).matcher(email).matches();
     }
 
-    public boolean isValidMobile(String phone) {
+    public boolean isValidPhone(String phone) {
         String PHONE_STRING = "(0)+([0-9]{9})\\b";
         return Pattern.compile(PHONE_STRING).matcher(phone).matches();
     }
 
     public boolean validateAccount(String phone, String password) {
+        if (phone == null || password == null)
+             return false;
         if (!phone.isEmpty() && !password.isEmpty())
             return true;
         return false;

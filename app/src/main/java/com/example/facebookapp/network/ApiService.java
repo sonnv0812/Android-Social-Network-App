@@ -1,6 +1,6 @@
 package com.example.facebookapp.network;
 
-import com.example.facebookapp.model.AccountModel;
+import com.example.facebookapp.data.model.AccountModel;
 
 import retrofit2.Call;
 import retrofit2.http.POST;

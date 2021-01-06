@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_login">32dp</dimen>
-    <dimen name="size_login_sp">16sp</dimen>
+    <dimen name="margin_signUp">16dp</dimen>
     <dimen name="margin_all_8dp">8dp</dimen>
+    <dimen name="padding_all_8dp">8dp</dimen>
 
     <dimen name="size_signUp_sp">26sp</dimen>
-    <dimen name="margin_signUp">16dp</dimen>
+    <dimen name="size_login_sp">16sp</dimen>
     <dimen name="size_editText_signUp_sp">20sp</dimen>
-
     <dimen name="size_avaPost_dp">32dp</dimen>
-    <dimen name="height_post_button">30dp</dimen>
     <dimen name="size_name_sp">16sp</dimen>
+    <dimen name="size_ava_dp">64dp</dimen>
+    <dimen name="size_all_32sp">32sp</dimen>
+    <dimen name="size_all_24sp">24sp</dimen>
+    <dimen name="size_all_40dp">40dp</dimen>
 
-    <dimen name="size_ava_notification_dp">64dp</dimen>
+    <dimen name="height_post_button">30dp</dimen>
+
+    <dimen name="text_size_webView">10sp</dimen>
+
 </resources>

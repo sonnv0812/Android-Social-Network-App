@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Facebook</string>
+    <string name="empty" />
 
     <string name="login_phone_hint">Phone or email</string>
     <string name="login_password_hint">Password</string>
@@ -32,12 +33,32 @@
 
     <string name="notification_demo_text">Nghĩa Đinh mentioned you in a comment</string>
 
-    <string name="error_input_account">Format Error</string>
-    <string name="error_login_invalid">User is not invalid</string>
-    <string name="error_no_network">No Internet Connection</string>
-    <string name="error_phone_existed">Phone number or email is existed!!!</string>
-    <string name="error_confirm_password">Confirm password is incorrect</string>
+    <string name="error_format_input">Sai định dạng</string>
+    <string name="error_login_invalid">Tài khoản không tồn tại</string>
+    <string name="error_no_network">Không có kết nối internet</string>
+    <string name="error_user_existed">Số điện thoại hoặc email đã được sử dụng</string>
+    <string name="error_confirm_password">Sai</string>
+    <string name="error_null_input">Thiếu</string>
+    <string name="error_not_correct_confirmCode_signUp">Sai mã xác nhận</string>
 
-    <string name="notify_login_successful">Login successful</string>
-    <string name="notify_create_account_successful">Create account successful</string>
+    <string name="notify_login_successful">Đăng nhập thành công</string>
+    <string name="notify_create_account_successful">Đăng ký thành công</string>
+
+    <string name="menu_fragment_desc_name">See your profile</string>
+    <string name="menu_fragment_name">Nguyen Van Son</string>
+    <string name="menu_fragment_title">Menu</string>
+    <string name="menu_fragment_logout">Logout</string>
+
+    <string name="response_id">id</string>
+    <string name="response_phone_number">phonenumber</string>
+    <string name="response_token">token</string>
+    <string name="response_avatar">avatar</string>
+
+    <string name="actionBar_sign_up_welcome">Tạo tài khoản</string>
+    <string name="actionBar_sign_up_name">Tên</string>
+    <string name="actionBar_sign_up_birthday">Ngày sinh</string>
+    <string name="actionBar_sign_up_rules">Điều khoản và quyền riêng tư</string>
+    <string name="actionBar_sign_up_email">Địa chỉ email</string>
+    <string name="actionBar_sign_up_phone">Số điện thoại</string>
+    <string name="actionBar_sign_up_confirm">Xác nhận tài khoản</string>
 </resources>

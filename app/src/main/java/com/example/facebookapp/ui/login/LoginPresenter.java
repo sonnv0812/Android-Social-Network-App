@@ -17,10 +17,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void handleLogin(String phone, String password) {
+    public void handleLogin(String phone, String password, String uuid) {
         CheckValidate validate = new CheckValidate();
         if (validate.validateAccount(phone, password)) {
-            repository.loginAction(phone, password, new OnDataLoadedListener<AccountModel>() {
+            repository.loginAction(phone, password, uuid, new OnDataLoadedListener<AccountModel>() {
                 @Override
                 public void onSuccess(AccountModel data) {
                     view.nextHome(data);

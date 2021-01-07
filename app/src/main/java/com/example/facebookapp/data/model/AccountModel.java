@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class AccountModel extends BaseResponse {
+
     @SerializedName("id")
     @Expose
     private String id;
@@ -15,9 +16,6 @@ public class AccountModel extends BaseResponse {
     @SerializedName("avatar")
     @Expose
     private String avatarLink;
-    @SerializedName("token")
-    @Expose
-    private String token;
 
     public String getId() {
         return id;
@@ -31,14 +29,10 @@ public class AccountModel extends BaseResponse {
         return avatarLink;
     }
 
-    public String getToken() {
-        return token;
-    }
-
     public AccountModel(String id, String username, String avatarLink, String token) {
         this.id = id;
         this.username = username;
         this.avatarLink = avatarLink;
-        this.token = token;
+        super.token = token;
     }
 }

@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/image_avatar" />
 
     <TextView
         android:id="@+id/text_status_home"
@@ -29,13 +29,13 @@
         android:gravity="center|left"
         android:onClick="onClick"
         android:background="@drawable/border_edit_text_status"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toBottomOf="@+id/image_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintStart_toEndOf="@+id/image_avatar"
+        app:layout_constraintTop_toTopOf="@+id/image_avatar" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/image_avatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="@dimen/margin_all_8dp"

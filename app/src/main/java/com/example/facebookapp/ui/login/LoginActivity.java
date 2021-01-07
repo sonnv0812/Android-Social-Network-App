@@ -20,6 +20,8 @@ import com.example.facebookapp.ui.signup.activity.SignUpActivity;
 import com.example.facebookapp.data.model.AccountModel;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.UUID;
+
 public class LoginActivity extends AppCompatActivity
         implements View.OnClickListener, LoginContract.View {
 
@@ -30,7 +32,6 @@ public class LoginActivity extends AppCompatActivity
     private TextInputLayout editPhoneLayout, editPasswordLayout;
     private EditText editPhone, editPassword;
     private String phone, password;
-
     private ProgressDialog dialog;
 
     @Override
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity
         editPassword = findViewById(R.id.edit_password);
 
         dialog = new ProgressDialog(this);
+        dialog.setTitle("Đợi chút");
 
         initPresenter();
     }
@@ -107,8 +109,9 @@ public class LoginActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.button_login:
+                String uuid = UUID.randomUUID().toString().replace("-", "");
                 dialog.show();
-                presenter.handleLogin(phone, password);
+                presenter.handleLogin(phone, password, uuid);
                 break;
         }
     }
@@ -126,7 +129,7 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void showError(int msgResId) {
         dialog.dismiss();
-        Toast.makeText(this, getString(msgResId), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(msgResId), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -136,9 +139,9 @@ public class LoginActivity extends AppCompatActivity
 
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         Bundle responseData = new Bundle();
-        responseData.putString(getApplicationContext().getString(R.string.response_id), account.getId());
-        responseData.putString(getApplicationContext().getString(R.string.response_token), account.getToken());
-        responseData.putString(getApplicationContext().getString(R.string.response_avatar), account.getAvatarLink());
+        responseData.putString(getString(R.string.key_id), account.getId());
+        responseData.putString(getString(R.string.key_token), account.getToken());
+        responseData.putString(getString(R.string.key_avatar), account.getAvatarLink());
         intent.putExtras(responseData);
 
         startActivity(intent, responseData);

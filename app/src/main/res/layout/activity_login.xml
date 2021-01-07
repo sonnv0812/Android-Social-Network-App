@@ -98,11 +98,13 @@
 
     <TextView
         android:id="@+id/text_or"
-        android:layout_width="@dimen/margin_login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
         android:gravity="center"
+        android:textColor="@color/colorBlack"
         android:text="@string/login_or"
+        android:padding="@dimen/padding_all_8dp"
         app:layout_constraintBottom_toTopOf="@+id/button_create_account"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
         app:layout_constraintStart_toStartOf="@+id/button_login"

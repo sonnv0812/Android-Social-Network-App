@@ -12,6 +12,7 @@
         android:text="@string/menu_fragment_title"
         android:textSize="@dimen/size_all_32sp"
         android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +42,7 @@
             android:text="@string/menu_fragment_name"
             android:textSize="@dimen/size_all_24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorBlack"
             app:layout_constraintStart_toEndOf="@+id/image_ava"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,6 +53,7 @@
             android:layout_marginTop="@dimen/margin_all_8dp"
             android:layout_marginBottom="@dimen/margin_all_8dp"
             android:text="@string/menu_fragment_desc_name"
+            android:textColor="@color/colorBlack"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/text_nameAccount"
             app:layout_constraintTop_toBottomOf="@+id/text_nameAccount" />
@@ -58,12 +61,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_logout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_all_8dp"
+        android:elevation="5dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/margin_all_8dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/image_logout"
@@ -77,11 +83,11 @@
             android:id="@+id/textView5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="@string/menu_fragment_logout"
             android:layout_marginStart="@dimen/margin_all_8dp"
-            android:textStyle="bold"
+            android:text="@string/menu_fragment_logout"
+            android:textColor="@color/colorBlack"
             android:textSize="@dimen/size_all_24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_logout"
             app:layout_constraintTop_toTopOf="@+id/image_logout" />

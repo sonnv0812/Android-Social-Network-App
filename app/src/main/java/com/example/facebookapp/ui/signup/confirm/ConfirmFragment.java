@@ -1,12 +1,14 @@
 package com.example.facebookapp.ui.signup.confirm;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ import com.example.facebookapp.data.repository.singup.confirm.ConfirmRepositoryI
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.example.facebookapp.ui.signup.activity.SignUpActivity;
 
+import java.util.UUID;
+
 public class ConfirmFragment extends Fragment implements ConfirmContract.View {
 
     private TextView textPhoneEmail, textContent;
@@ -34,6 +38,7 @@ public class ConfirmFragment extends Fragment implements ConfirmContract.View {
     private ConfirmContract.Presenter presenter;
     private String firstName, lastName, phone, mail, password, confirmCode;
     private long dateOfBirth;
+    private ProgressDialog dialog;
 
     public static ConfirmFragment newInstance(@Nullable String firstName,
                                               @Nullable String lastName,
@@ -64,11 +69,17 @@ public class ConfirmFragment extends Fragment implements ConfirmContract.View {
         editConfirmCode = root.findViewById(R.id.edit_confirm_code);
         buttonConfirm = root.findViewById(R.id.button_sign_up_confirm);
         buttonResentCode = root.findViewById(R.id.button_resent_code);
+
+        dialog = new ProgressDialog(getContext());
+        dialog.setTitle("Đợi chút");
+
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(R.string.actionBar_sign_up_confirm);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
         initPresenter();
         receiveData();
+
         presenter.handleCreateUI(phone, mail);
         return root;
     }
@@ -110,10 +121,9 @@ public class ConfirmFragment extends Fragment implements ConfirmContract.View {
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                @SuppressLint("ServiceCast")
-                TelephonyManager telephonyManager = (TelephonyManager) getActivity().getSystemService(Context.TELECOM_SERVICE);
-                @SuppressLint("HardwareIds")
-                String uuid = telephonyManager.getDeviceId();
+                dialog.show();
+                String uuid = UUID.randomUUID().toString().replace("-", "");
+                Log.v("UUID", uuid);
                 presenter.handleSignUp(confirmCode, phone, mail, password, uuid);
             }
         });
@@ -121,11 +131,15 @@ public class ConfirmFragment extends Fragment implements ConfirmContract.View {
 
     @Override
     public void showError(int msgResId) {
+        dialog.dismiss();
         Toast.makeText(getContext(), getString(msgResId), Toast.LENGTH_LONG).show();
     }
 
+    @SuppressLint("ShowToast")
     @Override
     public void nextLogin() {
+        dialog.dismiss();
+        Toast.makeText(getContext(), getString(R.string.notify_create_account_successful), Toast.LENGTH_LONG);
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
     }

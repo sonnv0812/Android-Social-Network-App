@@ -2,6 +2,7 @@ package com.example.facebookapp.ui.signup.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,7 @@ public class WelcomeFragment extends Fragment {
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(R.string.actionBar_sign_up_welcome);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         View root = inflater.inflate(R.layout.fragment_sign_up_welcome, container, false);
         buttonNextEnterName = root.findViewById(R.id.button_next_enter_name);
         textLogin = root.findViewById(R.id.text_button_login);
@@ -59,17 +61,5 @@ public class WelcomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getActivity().onBackPressed();
-                break;
-            default:
-                break;
-        }
-        return true;
     }
 }

@@ -21,40 +21,13 @@ public class NotificationFragment extends Fragment {
     private RecyclerView recyclerView;
     private NotificationAdapter notificationAdapter = new NotificationAdapter();
 
-    public NotificationFragment() {
-
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         recyclerView = view.findViewById(R.id.recyclerview_notification);
         recyclerView.setAdapter(notificationAdapter);
-        initData();
+
         return view;
-    }
-
-    public void initData() {
-        List<NotificationModel> notifications = new ArrayList<>();
-
-        notifications.add(new NotificationModel (
-                "https://wallpapercave.com/wp/k4cxWQK.jpg",
-                "Nghia Dinh mentioned you in a comment"
-        ));
-        notifications.add(new NotificationModel (
-                "https://wallpapercave.com/wp/k4cxWQK.jpg",
-                "Nghia Dinh mentioned you in a comment"
-        ));
-        notifications.add(new NotificationModel (
-                "https://wallpapercave.com/wp/k4cxWQK.jpg",
-                "Nghia Dinh mentioned you in a comment"
-        ));
-        notifications.add(new NotificationModel (
-                "https://wallpapercave.com/wp/k4cxWQK.jpg",
-                "Nghia Dinh mentioned you in a comment"
-        ));
-
-        notificationAdapter.addData(notifications);
     }
 }

@@ -2,18 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/padding_all_8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/constraint_save_draft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_all_8dp"
         android:layout_marginRight="@dimen/margin_all_8dp"
         android:layout_marginTop="24dp"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19">
@@ -41,13 +41,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/constraint_quit_post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_all_8dp"
+        android:layout_marginLeft="@dimen/margin_all_8dp"
+        android:layout_marginRight="@dimen/margin_all_8dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintStart_toStartOf="@+id/constraint_save_draft"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_save_draft">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -72,12 +75,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_continue_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_all_8dp"
+        android:layout_marginLeft="@dimen/margin_all_8dp"
+        android:layout_marginRight="@dimen/margin_all_8dp"
+        android:layout_marginTop="12dp"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraint_quit_post">
 
         <ImageView
             android:id="@+id/imageView6"
@@ -95,6 +102,7 @@
             android:text="Tiếp tục chỉnh sửa"
             android:textStyle="bold"
             android:textSize="18sp"
+            android:textColor="@color/colorBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="parent" />

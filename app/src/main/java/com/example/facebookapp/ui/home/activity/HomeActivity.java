@@ -1,28 +1,25 @@
 package com.example.facebookapp.ui.home.activity;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.config.FragmentsHome;
-import com.example.facebookapp.ui.home.activity.PagerHomeAdapter;
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 
-
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
-    
-    private final SharedPreferences tokenStorage = getSharedPreferences("TOKEN_STORAGE", Context.MODE_PRIVATE);
+
+    private SharedPreferences dataAccountStorage;
     private ViewPager viewPager;
     private PagerHomeAdapter pagerHomeAdapter;
     private HomeContract.Presenter presenter;
@@ -31,12 +28,12 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         pagerHomeAdapter = new PagerHomeAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager = findViewById(R.id.view_pager_home);
         viewPager.setAdapter(pagerHomeAdapter);
         initPresenter();
-
+        updateToken();
         TabLayout tabLayout = findViewById(R.id.tab_layout_home);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(FragmentsHome.HOME).setIcon(R.drawable.ic_home);
@@ -44,9 +41,10 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         tabLayout.getTabAt(FragmentsHome.NOTIFICATION).setIcon(R.drawable.ic_notifications);
         tabLayout.getTabAt(FragmentsHome.GROUP).setIcon(R.drawable.ic_group);
         tabLayout.getTabAt(FragmentsHome.MENU).setIcon(R.drawable.ic_menu);
-        String checkToken = tokenStorage.getString("token", null);
+        String checkToken = dataAccountStorage.getString(getString(R.string.key_token), null);
+
+//        Log.v("TOKEN", checkToken);
         presenter.checkToken(checkToken);
-        updateToken();
     }
 
     @Override
@@ -58,10 +56,13 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     private void updateToken() {
         Bundle receive = getIntent().getExtras();
         if (receive != null) {
-            String token = receive.getString("token");
-            @SuppressLint("CommitPrefEdits")
-            SharedPreferences.Editor editor = tokenStorage.edit();
-            editor.putString("token", token);
+            String id = receive.getString(getString(R.string.key_id));
+            String token = receive.getString(getString(R.string.key_token));
+            String avatarLink = receive.getString(getString(R.string.key_avatar));
+            Log.v("TOKEN", token);
+            dataAccountStorage.edit().putString(getString(R.string.key_token), token).apply();
+            dataAccountStorage.edit().putString(getString(R.string.key_id), id).apply();
+            dataAccountStorage.edit().putString(getString(R.string.key_avatar), avatarLink).apply();
         }
     }
 

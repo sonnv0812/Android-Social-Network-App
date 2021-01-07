@@ -14,7 +14,7 @@ public interface LoginContract {
     }
 
     interface Presenter {
-        void handleLogin(String phone, String password);
+        void handleLogin(String phone, String password, String uuid);
 
         void checkInputPhoneEmail(String phoneEmail);
 

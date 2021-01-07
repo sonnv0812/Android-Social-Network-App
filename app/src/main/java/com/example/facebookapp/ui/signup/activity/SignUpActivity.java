@@ -3,6 +3,8 @@ package com.example.facebookapp.ui.signup.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,4 +30,17 @@ public class SignUpActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_sign_up, welcomeFragment).commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Log.v("CHECK", "Event selected");
+                onBackPressed();
+                break;
+
+            default:
+                break;
+        }
+        return true;
+    }
 }

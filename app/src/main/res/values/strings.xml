@@ -41,6 +41,7 @@
 
     <string name="notify_login_successful">Đăng nhập thành công</string>
     <string name="notify_create_account_successful">Đăng ký thành công</string>
+    <string name="notify_add_post_successful">Đăng bài thành công</string>
 
     <string name="menu_fragment_desc_name">Xem trang cá nhân</string>
     <string name="menu_fragment_name">Nguyen Van Son</string>

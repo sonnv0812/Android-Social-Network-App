@@ -40,7 +40,6 @@
         android:layout_height="50dp"
         android:layout_margin="@dimen/margin_all_8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/example_round_avatar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

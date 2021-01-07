@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             String id = receive.getString(getString(R.string.key_id));
             String token = receive.getString(getString(R.string.key_token));
             String avatarLink = receive.getString(getString(R.string.key_avatar));
+            Log.v("AVATAR", avatarLink);
             Log.v("TOKEN", token);
             dataAccountStorage.edit().putString(getString(R.string.key_token), token).apply();
             dataAccountStorage.edit().putString(getString(R.string.key_id), id).apply();

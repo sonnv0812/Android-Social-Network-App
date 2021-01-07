@@ -37,12 +37,12 @@ public class NewFeedFragment extends Fragment {
         imageAvatar = root.findViewById(R.id.image_avatar);
         dataAccountStorage =
                 getContext().getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
+        initData();
         return root;
     }
 
     private void initData() {
         String avaLink = dataAccountStorage.getString(getString(R.string.key_avatar), null);
-
         Picasso.get().load(avaLink).into(imageAvatar);
     }
 

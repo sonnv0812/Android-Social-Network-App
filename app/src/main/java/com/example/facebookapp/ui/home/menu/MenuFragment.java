@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.example.facebookapp.R;
 import com.example.facebookapp.data.repository.home.menu.MenuRepository;
 import com.example.facebookapp.data.repository.home.menu.MenuRepositoryImpl;
 import com.example.facebookapp.ui.login.LoginActivity;
+import com.squareup.picasso.Picasso;
 
 public class MenuFragment extends Fragment implements MenuContract.View {
 
@@ -28,6 +30,7 @@ public class MenuFragment extends Fragment implements MenuContract.View {
     private MenuContract.Presenter presenter;
     private SharedPreferences dataAccountStorage;
     private ProgressDialog dialog;
+    private ImageView imageAvatar;
 
     @Nullable
     @Override
@@ -36,23 +39,25 @@ public class MenuFragment extends Fragment implements MenuContract.View {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menu, container,false);
         logout = root.findViewById(R.id.container_logout);
+        imageAvatar = root.findViewById(R.id.image_avatar);
         dataAccountStorage =
                 getContext().getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
-        readData();
+        initUI();
         initPresenter();
         dialog = new ProgressDialog(getContext());
         dialog.setTitle("Đợi chút");
         return root;
     }
 
-    private void readData() {
-        token = dataAccountStorage.getString(getString(R.string.key_token), null);
-        Log.v("TOKEN", token);
-    }
-
     private void initPresenter() {
         MenuRepository repository = new MenuRepositoryImpl();
         presenter = new MenuPresenter(this, repository);
+    }
+
+    private void initUI() {
+        token = dataAccountStorage.getString(getString(R.string.key_token), null);
+        String avatarLink = dataAccountStorage.getString(getString(R.string.key_avatar), null);
+        Picasso.get().load(avatarLink).into(imageAvatar);
     }
 
     @Override

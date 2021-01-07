@@ -72,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/image_logout"
+            android:id="@+id/image_avatar"
             android:layout_width="@dimen/size_all_40dp"
             android:layout_height="@dimen/size_all_40dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -89,8 +89,8 @@
             android:textSize="@dimen/size_all_24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_logout"
-            app:layout_constraintTop_toTopOf="@+id/image_logout" />
+            app:layout_constraintStart_toEndOf="@+id/image_avatar"
+            app:layout_constraintTop_toTopOf="@+id/image_avatar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

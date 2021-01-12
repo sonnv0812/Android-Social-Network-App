@@ -8,5 +8,5 @@ import java.util.List;
 public interface FriendRepository {
     void getRequestFriend(String token, int index, int count, OnDataLoadedListener<List<Friend>> callback);
 
-    void getUserFriend(String token, String userId, int index, int count, OnDataLoadedListener<List<Friend>> callback);
+    void setAccept(String token, String userId, boolean isAccept, OnDataLoadedListener<String> callback);
 }

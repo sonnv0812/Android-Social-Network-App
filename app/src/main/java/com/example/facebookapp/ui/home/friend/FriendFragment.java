@@ -1,6 +1,7 @@
 package com.example.facebookapp.ui.home.friend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,10 +22,14 @@ import com.example.facebookapp.config.FriendOnClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.data.repository.home.friend.FriendRepository;
 import com.example.facebookapp.data.repository.home.friend.FriendRepositoryImpl;
+import com.example.facebookapp.ui.friend.all.AllFriendActivity;
+import com.example.facebookapp.ui.friend.suggest.SuggestFriendActivity;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 
 public class FriendFragment extends Fragment implements FriendContract.View {
 
@@ -57,13 +62,13 @@ public class FriendFragment extends Fragment implements FriendContract.View {
             @Override
             public void onAcceptClicked(int position) {
                 Log.v("FRIEND", "Accept is clicked " + position);
-                presenter.handleAcceptFriend(friends.get(position).getId());
+                presenter.handleAcceptFriend(token, friends.get(position).getId(), true, position);
             }
 
             @Override
             public void onDeleteClicked(int position) {
                 Log.v("FRIEND", "Delete is clicked " + position);
-                presenter.handleDeleteRequest(friends.get(position).getId());
+                presenter.handleAcceptFriend(token, friends.get(position).getId(), false, position);
             }
 
             @Override
@@ -73,6 +78,7 @@ public class FriendFragment extends Fragment implements FriendContract.View {
         });
 
         recyclerRequest.setAdapter(adapter);
+        recyclerRequest.setItemAnimator(new ScaleInAnimator());
         return root;
     }
 
@@ -89,14 +95,16 @@ public class FriendFragment extends Fragment implements FriendContract.View {
         buttonSuggestFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), SuggestFriendActivity.class);
+                startActivity(intent);
             }
         });
 
         buttonAllFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.handleGetUserFriend();
+                Intent intent = new Intent(getContext(), AllFriendActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -109,5 +117,11 @@ public class FriendFragment extends Fragment implements FriendContract.View {
     @Override
     public void showMessage(int msgResId) {
         Toast.makeText(getContext(), getString(msgResId), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void updateUIAfterAccept(String userId, int position) {
+        friends.remove(position);
+        adapter.notifyItemRemoved(position);
     }
 }

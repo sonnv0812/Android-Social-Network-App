@@ -32,17 +32,18 @@ public class FriendPresenter implements FriendContract.Presenter {
     }
 
     @Override
-    public void handleGetUserFriend() {
+    public void handleAcceptFriend(String token, String userId, boolean isAccept, int position) {
+        repository.setAccept(token, userId, isAccept, new OnDataLoadedListener<String>() {
+            @Override
+            public void onSuccess(String data) {
+                view.updateUIAfterAccept(data, position);
+            }
 
+            @Override
+            public void onFailure(Exception exception) {
+
+            }
+        });
     }
 
-    @Override
-    public void handleAcceptFriend(String userId) {
-
-    }
-
-    @Override
-    public void handleDeleteRequest(String userId) {
-
-    }
 }

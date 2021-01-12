@@ -1,4 +1,4 @@
-package com.example.facebookapp.ui.createstatus;
+package com.example.facebookapp.ui.status.create;
 
 import java.util.List;
 

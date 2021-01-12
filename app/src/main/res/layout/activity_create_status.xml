@@ -5,8 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.createstatus.CreateStatusActivity"
-    tools:showIn="@layout/activity_create_status">
+    tools:context=".ui.status.create.CreateStatusActivity"
+    tools:showIn="@layout/activity_create_status"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/image_avatar"

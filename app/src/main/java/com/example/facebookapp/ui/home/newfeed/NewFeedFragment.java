@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.ui.createstatus.CreateStatusActivity;
+import com.example.facebookapp.ui.status.create.CreateStatusActivity;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.squareup.picasso.Picasso;
 

@@ -60,7 +60,7 @@ public interface ApiService {
                                     @Query("count") String count);
 
     @POST("get_requested_friends")
-    Call<BaseResponse> getRequestedFriend(@Query("token") String token,
+    Call<List<BaseResponse>> getRequestedFriend(@Query("token") String token,
                                           @Query("index") int index,
                                           @Query("count") int count);
 

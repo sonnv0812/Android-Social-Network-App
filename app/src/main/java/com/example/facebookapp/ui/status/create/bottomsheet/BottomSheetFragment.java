@@ -1,4 +1,4 @@
-package com.example.facebookapp.ui.createstatus.bottomsheet;
+package com.example.facebookapp.ui.status.create.bottomsheet;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -30,14 +30,14 @@
         app:layout_constraintTop_toTopOf="@+id/image_friend_avatar" />
 
     <Button
-        android:id="@+id/button_accept_request"
+        android:id="@+id/button_add_friend"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_all_8dp"
         android:layout_marginRight="@dimen/margin_all_8dp"
         android:background="@drawable/radius_button"
         android:backgroundTint="@color/colorBlue"
-        android:text="Chấp nhận"
+        android:text="Thêm bạn bè"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/image_friend_avatar"
@@ -46,28 +46,19 @@
         app:layout_constraintTop_toBottomOf="@+id/text_friend_name" />
 
     <Button
-        android:id="@+id/button_delete_request"
+        android:id="@+id/button_remove_suggest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_all_8dp"
+        android:layout_marginRight="@dimen/margin_all_8dp"
         android:background="@drawable/radius_button"
         android:backgroundTint="#c4c4c4"
-        android:text="Xóa"
+        android:text="Gỡ"
         android:textColor="@color/colorBlack"
-        android:layout_marginLeft="@dimen/margin_all_8dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/text_time_request_ago"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/button_accept_request" />
-
-    <TextView
-        android:id="@+id/text_time_request_ago"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_all_8dp"
-        android:text="1 năm"
-        android:textColor="@color/colorBlack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/button_add_friend" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

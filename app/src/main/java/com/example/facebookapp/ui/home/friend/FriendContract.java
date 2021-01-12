@@ -9,15 +9,13 @@ public interface FriendContract {
         void updateData(List<Friend> friendRequestList);
 
         void showMessage(int msgResId);
+
+        void updateUIAfterAccept(String userId, int position);
     }
 
     interface Presenter {
         void handleRequestFriend(String token);
 
-        void handleGetUserFriend();
-
-        void handleAcceptFriend(String userId);
-
-        void handleDeleteRequest(String userId);
+        void handleAcceptFriend(String token, String userId, boolean isAccept, int position);
     }
 }

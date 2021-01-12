@@ -1,4 +1,4 @@
-package com.example.facebookapp.ui.createstatus;
+package com.example.facebookapp.ui.status.create;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -20,9 +20,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.data.repository.createstatus.CreateStatusRepository;
-import com.example.facebookapp.data.repository.createstatus.CreateStatusRepositoryImpl;
-import com.example.facebookapp.ui.createstatus.bottomsheet.BottomSheetFragment;
+import com.example.facebookapp.data.repository.status.create.CreateStatusRepository;
+import com.example.facebookapp.data.repository.status.create.CreateStatusRepositoryImpl;
+import com.example.facebookapp.ui.status.create.bottomsheet.BottomSheetFragment;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.squareup.picasso.Picasso;
 

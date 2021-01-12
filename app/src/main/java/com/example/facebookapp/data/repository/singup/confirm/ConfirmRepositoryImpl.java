@@ -2,7 +2,6 @@ package com.example.facebookapp.data.repository.singup.confirm;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.AccountModel;
 import com.example.facebookapp.data.model.BaseResponse;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;

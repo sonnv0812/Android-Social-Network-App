@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bạn bè"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="@dimen/margin_all_8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="@dimen/margin_all_8dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#e6e6e6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView17"
+        app:srcCompat="@drawable/ic_search" />
+
+    <Button
+        android:id="@+id/button_suggest_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gợi ý"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_all_8dp"
+        android:backgroundTint="#c4c4c4"
+        android:background="@drawable/radius_button"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <Button
+        android:id="@+id/button_all_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tất cả bạn bè"
+        android:padding="5dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margin_all_8dp"
+        android:backgroundTint="#c4c4c4"
+        android:background="@drawable/radius_button"
+        app:layout_constraintStart_toEndOf="@+id/button_suggest_friend"
+        app:layout_constraintTop_toTopOf="@+id/button_suggest_friend" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_suggest_friend"
+        android:layout_margin="@dimen/margin_all_8dp"/>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lời mời kết bạn"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_margin="@dimen/margin_all_8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_request_friend"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_all_8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        tools:listitem="@layout/item_friend_request" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

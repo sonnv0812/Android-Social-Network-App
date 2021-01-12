@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.repository.home.menu.MenuRepository;
 import com.example.facebookapp.data.repository.home.menu.MenuRepositoryImpl;
+import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.squareup.picasso.Picasso;
 
@@ -38,6 +40,7 @@ public class MenuFragment extends Fragment implements MenuContract.View {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menu, container,false);
+
         logout = root.findViewById(R.id.container_logout);
         imageAvatar = root.findViewById(R.id.image_avatar);
         dataAccountStorage =
@@ -63,6 +66,8 @@ public class MenuFragment extends Fragment implements MenuContract.View {
     @Override
     public void onResume() {
         super.onResume();
+        ActionBar actionBar = ((HomeActivity) getActivity()).getSupportActionBar();
+        actionBar.hide();
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

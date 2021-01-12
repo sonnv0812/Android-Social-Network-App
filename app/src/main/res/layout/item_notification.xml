@@ -26,9 +26,10 @@
         android:layout_marginLeft="@dimen/margin_all_8dp"
         android:layout_marginEnd="@dimen/margin_all_8dp"
         android:layout_marginRight="@dimen/margin_all_8dp"
-        android:text="@string/notification_demo_text"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/image_ava_notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_ava_notification"
         app:layout_constraintTop_toTopOf="@+id/image_ava_notification" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

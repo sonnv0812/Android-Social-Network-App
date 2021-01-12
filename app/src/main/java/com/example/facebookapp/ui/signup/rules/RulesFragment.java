@@ -16,8 +16,6 @@ import com.example.facebookapp.R;
 import com.example.facebookapp.ui.signup.activity.SignUpActivity;
 import com.example.facebookapp.ui.signup.mail.EnterMailFragment;
 
-import java.util.Date;
-
 public class RulesFragment extends Fragment {
 
     private WebView webRules, webContent;
@@ -42,7 +40,7 @@ public class RulesFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_sign_up_rules_view, container, false);
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_rules);
+        actionBar.setTitle(R.string.actionbar_sign_up_rules);
         actionBar.setDisplayHomeAsUpEnabled(true);
         webRules = root.findViewById(R.id.webView_rules);
         webContent = root.findViewById(R.id.webView_content);

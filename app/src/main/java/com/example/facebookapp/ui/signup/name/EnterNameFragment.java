@@ -36,7 +36,7 @@ public class EnterNameFragment extends Fragment implements EnterNameContract.Vie
         View root = inflater.inflate(R.layout.fragment_sign_up_name, container, false);
 
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_name);
+        actionBar.setTitle(R.string.actionbar_sign_up_name);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         layoutFirstName = root.findViewById(R.id.editLayout_signUp_firstName);

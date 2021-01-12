@@ -12,11 +12,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.ui.createstatus.CreateStatusActivity;
+import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.squareup.picasso.Picasso;
 
 public class NewFeedFragment extends Fragment {
@@ -25,12 +27,14 @@ public class NewFeedFragment extends Fragment {
     private TextView textCreateStatus;
     private ImageView imageAvatar;
     private SharedPreferences dataAccountStorage;
+    private ActionBar actionBar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
+        actionBar = ((HomeActivity) getActivity()).getSupportActionBar();
+        actionBar.show();
         recyclerHome = root.findViewById(R.id.recyclerview_home);
         recyclerHome.setAdapter(postAdapter);
         textCreateStatus = root.findViewById(R.id.text_status_home);
@@ -49,7 +53,7 @@ public class NewFeedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        actionBar.show();
         textCreateStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

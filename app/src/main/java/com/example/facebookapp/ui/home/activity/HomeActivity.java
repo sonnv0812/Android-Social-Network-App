@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.config.FragmentsHome;
+import com.example.facebookapp.config.FragmentHome;
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 
@@ -36,11 +36,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         updateToken();
         TabLayout tabLayout = findViewById(R.id.tab_layout_home);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(FragmentsHome.HOME).setIcon(R.drawable.ic_home);
-        tabLayout.getTabAt(FragmentsHome.VIDEO).setIcon(R.drawable.ic_video);
-        tabLayout.getTabAt(FragmentsHome.NOTIFICATION).setIcon(R.drawable.ic_notifications);
-        tabLayout.getTabAt(FragmentsHome.GROUP).setIcon(R.drawable.ic_group);
-        tabLayout.getTabAt(FragmentsHome.MENU).setIcon(R.drawable.ic_menu);
+        tabLayout.getTabAt(FragmentHome.HOME).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(FragmentHome.VIDEO).setIcon(R.drawable.ic_video);
+        tabLayout.getTabAt(FragmentHome.NOTIFICATION).setIcon(R.drawable.ic_notifications);
+        tabLayout.getTabAt(FragmentHome.FRIEND).setIcon(R.drawable.ic_friend);
+        tabLayout.getTabAt(FragmentHome.MENU).setIcon(R.drawable.ic_menu);
         String checkToken = dataAccountStorage.getString(getString(R.string.key_token), null);
 
 //        Log.v("TOKEN", checkToken);

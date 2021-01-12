@@ -44,7 +44,7 @@ public class EnterBirthdayFragment extends Fragment implements EnterBirthdayCont
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_birthday);
+        actionBar.setTitle(R.string.actionbar_sign_up_birthday);
         actionBar.setDisplayHomeAsUpEnabled(true);
         View root = inflater.inflate(R.layout.fragment_sign_up_birthday, container, false);
         buttonNextRules = root.findViewById(R.id.button_next_rules);

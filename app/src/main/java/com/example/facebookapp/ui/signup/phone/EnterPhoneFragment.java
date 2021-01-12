@@ -51,7 +51,7 @@ public class EnterPhoneFragment extends Fragment implements EnterPhoneContract.V
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_sign_up_phone, container, false);
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_phone);
+        actionBar.setTitle(R.string.actionbar_sign_up_phone);
         actionBar.setDisplayHomeAsUpEnabled(true);
         buttonNextConfirm = root.findViewById(R.id.button_next_password);
         textRegisterEmail = root.findViewById(R.id.text_register_email);

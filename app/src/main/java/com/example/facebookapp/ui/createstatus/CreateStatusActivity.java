@@ -42,7 +42,7 @@ public class CreateStatusActivity extends AppCompatActivity implements CreateSta
 
         dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_create_status);
+        actionBar.setTitle(R.string.actionbar_create_status);
         actionBar.setDisplayHomeAsUpEnabled(true);
         editPost = findViewById(R.id.edit_post);
         imageAvatar = findViewById(R.id.image_avatar);

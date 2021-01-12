@@ -1,23 +1,34 @@
 package com.example.facebookapp.network;
 
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-
-import com.example.facebookapp.data.model.AccountModel;
 import com.example.facebookapp.data.model.BaseResponse;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
+    /**
+     *
+     * @param phoneNumber
+     * @param password
+     * @param uuid
+     * @return
+     */
     @POST("signup")
     Call<BaseResponse> signUp(@Query("phonenumber") String phoneNumber,
                               @Query("password") String password,
                               @Query("uuid") String uuid);
 
+    /**
+     * Api login to facebook
+     *
+     * @param phoneNumber
+     * @param password
+     * @param uuid
+     * @return
+     */
     @POST("login")
     Call<BaseResponse> login(@Query("phonenumber") String phoneNumber,
                              @Query("password") String password,
@@ -47,4 +58,31 @@ public interface ApiService {
                                     @Query("last_id") String lastId,
                                     @Query("index") String index,
                                     @Query("count") String count);
+
+    @POST("get_requested_friends")
+    Call<BaseResponse> getRequestedFriend(@Query("token") String token,
+                                          @Query("index") int index,
+                                          @Query("count") int count);
+
+    @POST("get_user_friends")
+    Call<BaseResponse> getUserFriend(@Query("user_id") String userId,
+                                     @Query("token") String token,
+                                     @Query("index") int index,
+                                     @Query("count") int count);
+
+    @POST("set_accept_friend")
+    Call<BaseResponse> setAcceptFriend(@Query("token") String token,
+                                       @Query("user_id") String user_id,
+                                       @Query("is_accept") String isAccept);
+
+
+    @POST("get_list_suggested_friends")
+    Call<BaseResponse> getListSuggestedFriend(@Query("token") String token,
+                                              @Query("index") int index,
+                                              @Query("count") int count);
+
+    @POST("change_password")
+    Call<BaseResponse> changePassword(@Query("token") String token,
+                                      @Query("password") String password,
+                                      @Query("new_password") String newPassword);
 }

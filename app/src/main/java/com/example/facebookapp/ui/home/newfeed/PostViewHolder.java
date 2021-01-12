@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.model.PostModel;
-import com.example.facebookapp.data.base.OnItemClickListener;
+import com.example.facebookapp.config.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
@@ -35,7 +35,6 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         textPost = itemView.findViewById(R.id.text_post);
         textNumberLike = itemView.findViewById(R.id.text_numberLike);
         buttonLike = itemView.findViewById(R.id.button_like);
-
     }
 
     public void setItemClickListener(OnItemClickListener itemClickListener) {

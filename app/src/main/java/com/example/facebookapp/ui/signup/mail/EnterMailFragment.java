@@ -17,10 +17,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.ui.signup.activity.SignUpActivity;
-import com.example.facebookapp.ui.signup.confirm.ConfirmFragment;
 import com.example.facebookapp.ui.signup.password.EnterPasswordFragment;
 import com.example.facebookapp.ui.signup.phone.EnterPhoneFragment;
-import com.example.facebookapp.ui.signup.rules.RulesFragment;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class EnterMailFragment extends Fragment implements EnterMailContract.View {
@@ -53,7 +51,7 @@ public class EnterMailFragment extends Fragment implements EnterMailContract.Vie
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_sign_up_email, container, false);
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_email);
+        actionBar.setTitle(R.string.actionbar_sign_up_email);
         actionBar.setDisplayHomeAsUpEnabled(true);
         textRegisterPhone = root.findViewById(R.id.text_register_phone);
         buttonNextConfirm = root.findViewById(R.id.button_next_password);

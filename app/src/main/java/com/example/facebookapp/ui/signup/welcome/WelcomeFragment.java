@@ -2,9 +2,7 @@ package com.example.facebookapp.ui.signup.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,7 +29,7 @@ public class WelcomeFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_welcome);
+        actionBar.setTitle(R.string.actionbar_sign_up_welcome);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
         View root = inflater.inflate(R.layout.fragment_sign_up_welcome, container, false);

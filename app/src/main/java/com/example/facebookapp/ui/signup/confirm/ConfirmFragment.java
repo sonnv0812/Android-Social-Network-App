@@ -2,10 +2,8 @@ package com.example.facebookapp.ui.signup.confirm;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -74,7 +72,7 @@ public class ConfirmFragment extends Fragment implements ConfirmContract.View {
         dialog.setTitle("Đợi chút");
 
         ActionBar actionBar = ((SignUpActivity) getActivity()).getSupportActionBar();
-        actionBar.setTitle(R.string.actionBar_sign_up_confirm);
+        actionBar.setTitle(R.string.actionbar_sign_up_confirm);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         initPresenter();

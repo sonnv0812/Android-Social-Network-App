@@ -17,7 +17,7 @@ import com.example.facebookapp.data.repository.login.LoginRepository;
 import com.example.facebookapp.data.repository.login.LoginRepositoryImpl;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.example.facebookapp.ui.signup.activity.SignUpActivity;
-import com.example.facebookapp.data.model.AccountModel;
+import com.example.facebookapp.data.model.account.AccountModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.UUID;

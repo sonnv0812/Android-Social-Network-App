@@ -2,7 +2,6 @@ package com.example.facebookapp.ui.signup.confirm;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.AccountModel;
 import com.example.facebookapp.data.repository.singup.confirm.ConfirmRepository;
 
 public class ConfirmPresenter implements ConfirmContract.Presenter {

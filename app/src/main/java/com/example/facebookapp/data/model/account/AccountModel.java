@@ -1,5 +1,6 @@
-package com.example.facebookapp.data.model;
+package com.example.facebookapp.data.model.account;
 
+import com.example.facebookapp.data.model.BaseResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

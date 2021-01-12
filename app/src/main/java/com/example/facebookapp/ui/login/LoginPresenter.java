@@ -3,7 +3,7 @@ package com.example.facebookapp.ui.login;
 import com.example.facebookapp.R;
 import com.example.facebookapp.config.CheckValidate;
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.AccountModel;
+import com.example.facebookapp.data.model.account.AccountModel;
 import com.example.facebookapp.data.repository.login.LoginRepository;
 
 public class LoginPresenter implements LoginContract.Presenter {

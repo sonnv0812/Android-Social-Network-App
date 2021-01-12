@@ -1,6 +1,6 @@
 package com.example.facebookapp.ui.login;
 
-import com.example.facebookapp.data.model.AccountModel;
+import com.example.facebookapp.data.model.account.AccountModel;
 
 public interface LoginContract {
     interface View {

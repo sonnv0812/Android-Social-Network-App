@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.model.PostModel;
-import com.example.facebookapp.config.OnItemClickListener;
+import com.example.facebookapp.listener.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {

@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         viewPager = findViewById(R.id.view_pager_home);
         viewPager.setAdapter(pagerHomeAdapter);
         initPresenter();
-        updateToken();
+        updateDataAccount();
         TabLayout tabLayout = findViewById(R.id.tab_layout_home);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(FragmentHome.HOME).setIcon(R.drawable.ic_home);
@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         return true;
     }
 
-    private void updateToken() {
+    private void updateDataAccount() {
         Bundle receive = getIntent().getExtras();
         if (receive != null) {
             String id = receive.getString(getString(R.string.key_id));

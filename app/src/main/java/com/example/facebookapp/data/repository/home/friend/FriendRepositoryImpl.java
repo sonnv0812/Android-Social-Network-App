@@ -24,8 +24,8 @@ public class FriendRepositoryImpl implements FriendRepository {
         apiService.getRequestedFriend(token, index, count).enqueue(new Callback<List<BaseResponse>>() {
             @Override
             public void onResponse(Call<List<BaseResponse>> call, Response<List<BaseResponse>> response) {
-                int total = Integer.parseInt(response.body().get(0).getRequestFriend().getTotal());
                 if (response.isSuccessful()) {
+                    int total = Integer.parseInt(response.body().get(0).getRequestFriend().getTotal());
                     switch (response.body().get(0).getCode()) {
                         case ResponseCode.OK:
                             int i = 0;

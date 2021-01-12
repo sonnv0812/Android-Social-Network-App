@@ -65,7 +65,7 @@ public interface ApiService {
                                           @Query("count") int count);
 
     @POST("get_user_friends")
-    Call<BaseResponse> getUserFriend(@Query("user_id") String userId,
+    Call<List<BaseResponse>> getUserFriend(@Query("user_id") String userId,
                                      @Query("token") String token,
                                      @Query("index") int index,
                                      @Query("count") int count);
@@ -77,7 +77,7 @@ public interface ApiService {
 
 
     @POST("get_list_suggested_friends")
-    Call<BaseResponse> getListSuggestedFriend(@Query("token") String token,
+    Call<List<BaseResponse>> getListSuggestedFriend(@Query("token") String token,
                                               @Query("index") int index,
                                               @Query("count") int count);
 

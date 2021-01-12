@@ -1,6 +1,6 @@
-package com.example.facebookapp.config;
+package com.example.facebookapp.listener;
 
-public interface FriendOnClickListener {
+public interface FriendRequestClickListener {
     void onAcceptClicked(int position);
 
     void onDeleteClicked(int position);

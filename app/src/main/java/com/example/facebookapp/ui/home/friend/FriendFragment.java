@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.config.FriendOnClickListener;
+import com.example.facebookapp.listener.FriendRequestClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.data.repository.home.friend.FriendRepository;
 import com.example.facebookapp.data.repository.home.friend.FriendRepositoryImpl;
@@ -34,12 +34,11 @@ import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 public class FriendFragment extends Fragment implements FriendContract.View {
 
     private String token;
-    private SharedPreferences dataAccountStorage;
     private Button buttonSuggestFriend, buttonAllFriend;
     private FriendContract.Presenter presenter;
     private RecyclerView recyclerRequest;
     private FriendRequestAdapter adapter;
-    private List<Friend> friends = new ArrayList<>();
+    private List<Friend> friendList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -48,27 +47,26 @@ public class FriendFragment extends Fragment implements FriendContract.View {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_friend, container, false);
 
-        dataAccountStorage =
-                getContext().getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
+        SharedPreferences dataAccountStorage = getContext().getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
+        token = dataAccountStorage.getString(getString(R.string.key_token), null);
 
         buttonSuggestFriend = root.findViewById(R.id.button_suggest_friend);
         buttonAllFriend = root.findViewById(R.id.button_all_friend);
         recyclerRequest = root.findViewById(R.id.recyclerview_request_friend);
-        token = dataAccountStorage.getString(getString(R.string.key_token), null);
 
         initPresenter();
         presenter.handleRequestFriend(token);
-        adapter = new FriendRequestAdapter(friends, new FriendOnClickListener() {
+        adapter = new FriendRequestAdapter(friendList, new FriendRequestClickListener() {
             @Override
             public void onAcceptClicked(int position) {
                 Log.v("FRIEND", "Accept is clicked " + position);
-                presenter.handleAcceptFriend(token, friends.get(position).getId(), true, position);
+                presenter.handleAcceptFriend(token, friendList.get(position).getId(), true, position);
             }
 
             @Override
             public void onDeleteClicked(int position) {
                 Log.v("FRIEND", "Delete is clicked " + position);
-                presenter.handleAcceptFriend(token, friends.get(position).getId(), false, position);
+                presenter.handleAcceptFriend(token, friendList.get(position).getId(), false, position);
             }
 
             @Override
@@ -121,7 +119,7 @@ public class FriendFragment extends Fragment implements FriendContract.View {
 
     @Override
     public void updateUIAfterAccept(String userId, int position) {
-        friends.remove(position);
+        friendList.remove(position);
         adapter.notifyItemRemoved(position);
     }
 }

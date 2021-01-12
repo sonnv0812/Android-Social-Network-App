@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.config.FriendOnClickListener;
+import com.example.facebookapp.listener.FriendRequestClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 
 import java.util.ArrayList;
@@ -17,9 +17,9 @@ import java.util.List;
 public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestViewHolder> {
 
     private List<Friend> friends = new ArrayList<>();
-    private FriendOnClickListener listener;
+    private FriendRequestClickListener listener;
 
-    public FriendRequestAdapter(List<Friend> friends, FriendOnClickListener listener) {
+    public FriendRequestAdapter(List<Friend> friends, FriendRequestClickListener listener) {
         this.friends = friends;
         this.listener = listener;
     }

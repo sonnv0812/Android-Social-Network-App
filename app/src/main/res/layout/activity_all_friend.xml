@@ -34,7 +34,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/text_total_friend"
-        tools:listitem="@layout/item_friend_have_same_friend"/>
+        tools:listitem="@layout/item_friend"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

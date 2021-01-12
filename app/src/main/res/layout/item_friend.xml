@@ -26,19 +26,34 @@
         android:textColor="@color/colorBlack"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/image_friend_avatar"
-        app:layout_constraintStart_toEndOf="@+id/image_friend_avatar"
-        app:layout_constraintTop_toTopOf="@+id/image_friend_avatar" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/image_friend_avatar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <TextView
+        android:id="@+id/text_same_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/text_friend_name"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <ImageButton
         android:id="@+id/image_setup_friend_advanced"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_all_8dp"
-        android:background="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_other" />
+        app:srcCompat="@drawable/ic_other"
+        android:background="@color/colorWhite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

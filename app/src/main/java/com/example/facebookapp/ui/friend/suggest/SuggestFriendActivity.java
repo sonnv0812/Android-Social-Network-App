@@ -1,5 +1,6 @@
 package com.example.facebookapp.ui.friend.suggest;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,8 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_friend);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.actionbar_suggest_friend);
         SharedPreferences dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
 

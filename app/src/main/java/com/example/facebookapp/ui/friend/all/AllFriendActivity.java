@@ -1,5 +1,6 @@
 package com.example.facebookapp.ui.friend.all;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,8 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_friend);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.actionbar_all_friend);
         dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
         userId = dataAccountStorage.getString(getString(R.string.key_id), null);

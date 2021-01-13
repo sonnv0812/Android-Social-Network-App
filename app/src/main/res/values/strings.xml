@@ -55,6 +55,8 @@
     <string name="actionbar_sign_up_confirm">Xác nhận tài khoản</string>
     <string name="actionbar_create_status">Tạo bài viết</string>
     <string name="actionbar_request_friend">Yêu cầu kết bạn</string>
+    <string name="actionbar_all_friend">Tất cả bạn bè</string>
+    <string name="actionbar_suggest_friend">Gợi ý kết bạn</string>
 
     <string name="storage_data_account">TOKEN_STORAGE</string>
 

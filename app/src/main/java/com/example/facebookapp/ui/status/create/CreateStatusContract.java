@@ -1,5 +1,6 @@
 package com.example.facebookapp.ui.status.create;
 
+import java.io.File;
 import java.util.List;
 
 public interface CreateStatusContract {
@@ -11,9 +12,9 @@ public interface CreateStatusContract {
 
     interface Presenter {
         void handlePost(String token,
-                        List<String> image,
-                        String video,
                         String described,
-                        String status);
+                        String status,
+                        List<File> image,
+                        File video);
     }
 }

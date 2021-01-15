@@ -70,7 +70,7 @@
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_all_8dp"
+            android:layout_marginStart="@dimen/margin_all_8dp"
             android:text="Huỷ kết bạn với "
             android:textColor="#ff0000"
             android:textSize="18sp"

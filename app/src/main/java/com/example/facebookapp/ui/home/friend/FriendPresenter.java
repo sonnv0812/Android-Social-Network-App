@@ -1,5 +1,7 @@
 package com.example.facebookapp.ui.home.friend;
 
+import android.util.Log;
+
 import com.example.facebookapp.data.base.OnDataLoadedListener;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.data.repository.home.friend.FriendRepository;
@@ -45,5 +47,4 @@ public class FriendPresenter implements FriendContract.Presenter {
             }
         });
     }
-
 }

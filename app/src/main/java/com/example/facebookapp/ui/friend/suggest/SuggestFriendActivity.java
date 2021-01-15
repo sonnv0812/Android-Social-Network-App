@@ -15,6 +15,7 @@ import com.example.facebookapp.data.repository.friend.suggest.SuggestRepository;
 import com.example.facebookapp.data.repository.friend.suggest.SuggestRepositoryImpl;
 import com.example.facebookapp.listener.FriendSuggestClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
@@ -25,7 +26,7 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
     private SuggestFriendContract.Presenter presenter;
     private RecyclerView recyclerSuggestFriend;
     private SuggestFriendAdapter adapter;
-    private List<Friend> friendList;
+    private List<Friend> friendList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.actionbar_suggest_friend);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         SharedPreferences dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
 

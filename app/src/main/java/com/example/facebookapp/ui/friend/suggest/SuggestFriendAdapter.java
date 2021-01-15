@@ -11,15 +11,16 @@ import com.example.facebookapp.R;
 import com.example.facebookapp.listener.FriendSuggestClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SuggestFriendAdapter extends RecyclerView.Adapter<SuggestFriendViewHolder> {
 
-    private List<Friend> friendList;
+    private List<Friend> friends = new ArrayList<>();
     private FriendSuggestClickListener listener;
 
-    public SuggestFriendAdapter(List<Friend> friendList, FriendSuggestClickListener listener) {
-        this.friendList = friendList;
+    public SuggestFriendAdapter(List<Friend> friends, FriendSuggestClickListener listener) {
+        this.friends = friends;
         this.listener = listener;
     }
 
@@ -32,24 +33,24 @@ public class SuggestFriendAdapter extends RecyclerView.Adapter<SuggestFriendView
 
     @Override
     public void onBindViewHolder(@NonNull SuggestFriendViewHolder holder, int position) {
-        holder.bindData(friendList.get(position));
+        holder.bindData(friends.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return friendList == null ? 0 : friendList.size();
+        return friends == null ? 0 : friends.size();
     }
 
     public void updateData(List<Friend> newFriend) {
-        friendList.clear();
-        friendList.addAll(newFriend);
+        friends.clear();
+        friends.addAll(newFriend);
         notifyDataSetChanged();
     }
 
     public void addData(List<Friend> moreFriend) {
-        int oldSize = friendList.size();
-        friendList.addAll(moreFriend);
-        int newSize = friendList.size();
+        int oldSize = friends.size();
+        friends.addAll(moreFriend);
+        int newSize = friends.size();
         notifyItemRangeChanged(oldSize, newSize);
     }
 }

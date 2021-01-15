@@ -14,7 +14,7 @@ import com.example.facebookapp.R;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class BottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
+public class PopupBackCreateStatus extends BottomSheetDialogFragment implements View.OnClickListener {
 
     private ConstraintLayout constraintSave, constraintQuit, constraintContinue;
 

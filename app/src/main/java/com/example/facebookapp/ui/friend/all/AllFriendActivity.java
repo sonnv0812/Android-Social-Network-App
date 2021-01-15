@@ -14,8 +14,9 @@ import com.example.facebookapp.listener.FriendUserClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.data.repository.friend.all.AllFriendRepository;
 import com.example.facebookapp.data.repository.friend.all.AllFriendRepositoryImpl;
-import com.example.facebookapp.ui.friend.all.bottomsheet.BottomSheetSetupFragment;
+import com.example.facebookapp.ui.friend.all.bottomsheet.PopupFriendSetup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllFriendActivity extends AppCompatActivity implements AllFriendContract.View {
@@ -25,7 +26,7 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
     private AllFriendContract.Presenter presenter;
     private AllFriendAdapter adapter;
     private RecyclerView recyclerUserFriend;
-    private List<Friend> friendList;
+    private List<Friend> friendList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.actionbar_all_friend);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
         userId = dataAccountStorage.getString(getString(R.string.key_id), null);
@@ -50,8 +52,8 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
 
             @Override
             public void onSetupClick(int position) {
-                BottomSheetSetupFragment bottomSheetSetupFragment = new BottomSheetSetupFragment();
-                bottomSheetSetupFragment.show(getSupportFragmentManager(), bottomSheetSetupFragment.getTag());
+                PopupFriendSetup popupFriendSetup = new PopupFriendSetup();
+                popupFriendSetup.show(getSupportFragmentManager(), popupFriendSetup.getTag());
             }
         });
 

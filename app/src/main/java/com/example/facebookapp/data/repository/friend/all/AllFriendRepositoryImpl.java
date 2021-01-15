@@ -1,7 +1,7 @@
 package com.example.facebookapp.data.repository.friend.all;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.BaseResponse;
+import com.example.facebookapp.data.model.FriendResponse;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
@@ -21,34 +21,33 @@ public class AllFriendRepositoryImpl implements AllFriendRepository {
     @Override
     public void getUserFriend(String token, String userId, int index, int count, OnDataLoadedListener<List<Friend>> callback) {
         List<Friend> friendResponse = new ArrayList<>();
-        apiService.getUserFriend(userId, token, index, count).enqueue(new Callback<List<BaseResponse>>() {
+        apiService.getUserFriend(userId, token, index, count).enqueue(new Callback<FriendResponse>() {
             @Override
-            public void onResponse(Call<List<BaseResponse>> call, Response<List<BaseResponse>> response) {
+            public void onResponse(Call<FriendResponse> call, Response<FriendResponse> response) {
                 if (response.isSuccessful()) {
-                    int total = Integer.parseInt(response.body().get(0).getRequestFriend().getTotal());
-                    switch (response.body().get(0).getCode()) {
+                    int total = Integer.parseInt(response.body().getRequestFriend().getTotal());
+                    switch (response.body().getCode()) {
                         case ResponseCode.OK:
                             int i = 0;
                             while (i < total) {
                                 friendResponse.add(new Friend(
-                                        response.body().get(i).getRequestFriend().getRequest().getId(),
-                                        response.body().get(i).getRequestFriend().getRequest().getUsername(),
-                                        response.body().get(i).getRequestFriend().getRequest().getAvatar(),
-                                        response.body().get(i).getRequestFriend().getRequest().getSameFriend(),
-                                        response.body().get(i).getRequestFriend().getRequest().getCreated()
+                                        response.body().getRequestFriend().getFriends().get(i).getId(),
+                                        response.body().getRequestFriend().getFriends().get(i).getUsername(),
+                                        response.body().getRequestFriend().getFriends().get(i).getAvatar(),
+                                        response.body().getRequestFriend().getFriends().get(i).getSameFriend()
                                 ));
                                 i++;
                             }
+                            callback.onSuccess(friendResponse);
                             break;
                         default:
                             break;
                     }
                 }
-                callback.onSuccess(friendResponse);
             }
 
             @Override
-            public void onFailure(Call<List<BaseResponse>> call, Throwable t) {
+            public void onFailure(Call<FriendResponse> call, Throwable t) {
 
             }
         });

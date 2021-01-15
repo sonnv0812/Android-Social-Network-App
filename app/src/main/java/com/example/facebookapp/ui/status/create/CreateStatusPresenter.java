@@ -4,6 +4,7 @@ import com.example.facebookapp.data.base.OnDataLoadedListener;
 import com.example.facebookapp.data.repository.status.create.CreateStatusRepository;
 import com.example.facebookapp.R;
 
+import java.io.File;
 import java.util.List;
 
 public class CreateStatusPresenter implements CreateStatusContract.Presenter {
@@ -15,13 +16,13 @@ public class CreateStatusPresenter implements CreateStatusContract.Presenter {
         this.view = view;
         this.repository = repository;
     }
-
+    
     @Override
-    public void handlePost(String token, List<String> image, String video, String described, String status) {
+    public void handlePost(String token, String described, String status, List<File> image, File video) {
         if (described == null)
             view.showError(R.string.error_null_input);
         else
-            repository.getApiAddPost(token, image, video, described, status, new OnDataLoadedListener<String>() {
+            repository.getApiAddPost(token, described, status, image, video, new OnDataLoadedListener<String>() {
                 @Override
                 public void onSuccess(String data) {
                     view.successfulAddPost();

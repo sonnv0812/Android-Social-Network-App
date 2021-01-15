@@ -6,6 +6,7 @@ import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
 import com.example.facebookapp.network.RetrofitClient;
 
+import java.io.File;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,22 +18,7 @@ public class CreateStatusRepositoryImpl implements CreateStatusRepository {
     private final ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
 
     @Override
-    public void getApiAddPost(String token, List<String> image, String video, String described, String status, OnDataLoadedListener<String> callback) {
-        apiService.addPost(token, null, null, described, null).enqueue(new Callback<BaseResponse>() {
-            @Override
-            public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
-                if (response.isSuccessful())
-                    switch (response.body().getCode()) {
-                        case ResponseCode.OK:
-                            callback.onSuccess("Đăng bài thành công");
-                            break;
-                    }
-            }
+    public void getApiAddPost(String token, String described, String status, List<File> image, File video, OnDataLoadedListener<String> callback) {
 
-            @Override
-            public void onFailure(Call<BaseResponse> call, Throwable t) {
-
-            }
-        });
     }
 }

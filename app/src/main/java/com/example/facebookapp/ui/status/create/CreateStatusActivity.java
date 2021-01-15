@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.repository.status.create.CreateStatusRepository;
 import com.example.facebookapp.data.repository.status.create.CreateStatusRepositoryImpl;
-import com.example.facebookapp.ui.status.create.bottomsheet.BottomSheetFragment;
+import com.example.facebookapp.ui.status.create.bottomsheet.PopupBackCreateStatus;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.squareup.picasso.Picasso;
 
@@ -96,8 +96,8 @@ public class CreateStatusActivity extends AppCompatActivity implements CreateSta
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
-                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+                PopupBackCreateStatus popupBackCreateStatus = new PopupBackCreateStatus();
+                popupBackCreateStatus.show(getSupportFragmentManager(), popupBackCreateStatus.getTag());
                 break;
             case R.id.button_create:
                 dialog.show();

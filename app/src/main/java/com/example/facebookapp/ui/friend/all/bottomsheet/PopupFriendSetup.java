@@ -12,9 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.ui.status.create.bottomsheet.BottomSheetFragment;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class BottomSheetSetupFragment extends BottomSheetFragment {
+public class PopupFriendSetup extends BottomSheetDialogFragment {
 
     private ConstraintLayout constraintMessage, constraintBlock, constraintUnFriend;
     private TextView textLastName, textFriendName;

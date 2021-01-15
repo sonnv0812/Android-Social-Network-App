@@ -4,15 +4,28 @@ public class Friend {
     private String id;
     private String username;
     private String avatar;
-    private String sameFriend;
+    private int sameFriend;
     private String created;
 
-    public Friend(String id, String username, String avatar, String sameFriend, String created) {
+    public Friend(String id, String username, String avatar, int sameFriend, String created) {
         this.id = id;
         this.username = username;
         this.avatar = avatar;
         this.sameFriend = sameFriend;
         this.created = created;
+    }
+
+    public Friend(String id, String username, String avatar, int sameFriend) {
+        this.id = id;
+        this.username = username;
+        this.avatar = avatar;
+        this.sameFriend = sameFriend;
+    }
+
+    public Friend(String id, String avatar, int sameFriend) {
+        this.id = id;
+        this.avatar = avatar;
+        this.sameFriend = sameFriend;
     }
 
     public String getId() {
@@ -27,7 +40,7 @@ public class Friend {
         return avatar;
     }
 
-    public String getSameFriend() {
+    public int getSameFriend() {
         return sameFriend;
     }
 

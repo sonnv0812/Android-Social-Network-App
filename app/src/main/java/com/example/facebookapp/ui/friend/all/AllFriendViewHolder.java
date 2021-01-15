@@ -49,7 +49,7 @@ public class AllFriendViewHolder extends RecyclerView.ViewHolder {
 
     @SuppressLint("SetTextI18n")
     public void bindData(Friend friend) {
-        if (friend.getSameFriend().equals(0))
+        if (friend.getSameFriend() == 0)
             textSameFriend.setText("");
         else
             textSameFriend.setText(friend.getSameFriend() + " bạn chung");

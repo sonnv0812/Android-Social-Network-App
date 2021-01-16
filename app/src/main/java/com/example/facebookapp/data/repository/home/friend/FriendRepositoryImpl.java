@@ -3,7 +3,7 @@ package com.example.facebookapp.data.repository.home.friend;
 import android.util.Log;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.FriendResponse;
+import com.example.facebookapp.data.model.friend.BaseFriendResponse;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
@@ -23,9 +23,9 @@ public class FriendRepositoryImpl implements FriendRepository {
     @Override
     public void getRequestFriend(String token, int index, int count, OnDataLoadedListener<List<Friend>> callback) {
         List<Friend> friendResponse = new ArrayList<>();
-        apiService.getRequestedFriend(token, index, count).enqueue(new Callback<FriendResponse>() {
+        apiService.getRequestedFriend(token, index, count).enqueue(new Callback<BaseFriendResponse>() {
             @Override
-            public void onResponse(Call<FriendResponse> call, Response<FriendResponse> response) {
+            public void onResponse(Call<BaseFriendResponse> call, Response<BaseFriendResponse> response) {
                 Log.v("FRIEND", response.body().toString());
                 if (response.isSuccessful()) {
                     int total = Integer.parseInt(response.body().getRequestFriend().getTotal());
@@ -52,7 +52,7 @@ public class FriendRepositoryImpl implements FriendRepository {
             }
 
             @Override
-            public void onFailure(Call<FriendResponse> call, Throwable t) {
+            public void onFailure(Call<BaseFriendResponse> call, Throwable t) {
 
             }
         });
@@ -60,9 +60,9 @@ public class FriendRepositoryImpl implements FriendRepository {
 
     @Override
     public void setAccept(String token, String userId, boolean isAccept, OnDataLoadedListener<String> callback) {
-        apiService.setAcceptFriend(token, userId, String.valueOf(isAccept)).enqueue(new Callback<FriendResponse>() {
+        apiService.setAcceptFriend(token, userId, String.valueOf(isAccept)).enqueue(new Callback<BaseFriendResponse>() {
             @Override
-            public void onResponse(Call<FriendResponse> call, Response<FriendResponse> response) {
+            public void onResponse(Call<BaseFriendResponse> call, Response<BaseFriendResponse> response) {
                 if (response.isSuccessful())
                     switch (response.body().getCode()) {
                         case ResponseCode.OK:
@@ -74,7 +74,7 @@ public class FriendRepositoryImpl implements FriendRepository {
             }
 
             @Override
-            public void onFailure(Call<FriendResponse> call, Throwable t) {
+            public void onFailure(Call<BaseFriendResponse> call, Throwable t) {
 
             }
         });

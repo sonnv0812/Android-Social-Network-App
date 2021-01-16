@@ -1,7 +1,7 @@
 package com.example.facebookapp.data.repository.friend.all;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.FriendResponse;
+import com.example.facebookapp.data.model.friend.BaseFriendResponse;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
@@ -21,9 +21,9 @@ public class AllFriendRepositoryImpl implements AllFriendRepository {
     @Override
     public void getUserFriend(String token, String userId, int index, int count, OnDataLoadedListener<List<Friend>> callback) {
         List<Friend> friendResponse = new ArrayList<>();
-        apiService.getUserFriend(userId, token, index, count).enqueue(new Callback<FriendResponse>() {
+        apiService.getUserFriend(userId, token, index, count).enqueue(new Callback<BaseFriendResponse>() {
             @Override
-            public void onResponse(Call<FriendResponse> call, Response<FriendResponse> response) {
+            public void onResponse(Call<BaseFriendResponse> call, Response<BaseFriendResponse> response) {
                 if (response.isSuccessful()) {
                     int total = Integer.parseInt(response.body().getRequestFriend().getTotal());
                     switch (response.body().getCode()) {
@@ -47,7 +47,7 @@ public class AllFriendRepositoryImpl implements AllFriendRepository {
             }
 
             @Override
-            public void onFailure(Call<FriendResponse> call, Throwable t) {
+            public void onFailure(Call<BaseFriendResponse> call, Throwable t) {
 
             }
         });

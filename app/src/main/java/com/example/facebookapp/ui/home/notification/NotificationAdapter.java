@@ -8,8 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.data.model.NotificationModel;
-import com.example.facebookapp.ui.home.notification.NotificationViewHolder;
+import com.example.facebookapp.data.model.notification.NotificationModel;
 
 import java.util.ArrayList;
 import java.util.List;

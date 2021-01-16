@@ -1,7 +1,5 @@
 package com.example.facebookapp.ui.home.newfeed;
 
-import android.graphics.Color;
-import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,50 +8,54 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.facebookapp.R;
-import com.example.facebookapp.data.model.PostModel;
-import com.example.facebookapp.listener.OnItemClickListener;
-import com.squareup.picasso.Picasso;
+import com.example.facebookapp.data.model.post.Post;
+import com.example.facebookapp.listener.PostClickListener;
+
+import java.lang.ref.WeakReference;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
     private ImageView imageAvatar;
     private TextView textName;
     private TextView textTime;
-    private TextView textPost;
+    private TextView textDescribed;
     private TextView textNumberLike;
     private Button buttonLike;
+    private WeakReference<PostClickListener> listenerRef;
 
-    private OnItemClickListener itemClickListener;
-
-    public PostViewHolder(@NonNull final View itemView) {
+    public PostViewHolder(@NonNull final View itemView, PostClickListener listener) {
         super(itemView);
 
+        listenerRef = new WeakReference<PostClickListener>(listener);
         imageAvatar = itemView.findViewById(R.id.image_avatar);
         textName = itemView.findViewById(R.id.text_name);
         textTime = itemView.findViewById(R.id.text_timePost);
-        textPost = itemView.findViewById(R.id.text_post);
+        textDescribed = itemView.findViewById(R.id.text_post);
         textNumberLike = itemView.findViewById(R.id.text_numberLike);
         buttonLike = itemView.findViewById(R.id.button_like);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerRef.get().onClick(getAdapterPosition());
+            }
+        });
+
+        buttonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerRef.get().onLikeClick(getAdapterPosition());
+            }
+        });
     }
 
-    public void setItemClickListener(OnItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    public void bindData(final PostModel postModel) {
-        Picasso.get().load(Uri.parse(postModel.getAvatar())).into(imageAvatar);
-
-        textName.setText(postModel.getNameAccount());
-//        long timeAgo = Calendar.getInstance().getTimeInMillis() - postModel.getTimePost();
-        textTime.setText(String.format("%sh ago", String.valueOf(postModel.getTimePost())));
-        textPost.setText(postModel.getTextPost());
-        textNumberLike.setText(String.valueOf(postModel.getNumberLike()));
-        if (postModel.isLike())
-            buttonLike.setTextColor(Color.BLUE);
-        else
-            buttonLike.setTextColor(Color.BLACK);
-
+    public void bindData(Post post) {
+        Glide.with(itemView).load(post.getAuthor().getAvatar()).into(imageAvatar);
+        textName.setText(post.getAuthor().getName());
+        textDescribed.setText(post.getDescribed());
+        textNumberLike.setText(post.getLike());
     }
 
 }

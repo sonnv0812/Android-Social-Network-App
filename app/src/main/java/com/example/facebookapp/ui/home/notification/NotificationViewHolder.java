@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
-import com.example.facebookapp.data.model.NotificationModel;
+import com.example.facebookapp.data.model.notification.NotificationModel;
 import com.squareup.picasso.Picasso;
 
 public class NotificationViewHolder extends RecyclerView.ViewHolder {

@@ -103,7 +103,7 @@ public class CreateStatusActivity extends AppCompatActivity implements CreateSta
                 dialog.show();
                 Log.v("CREATE", "Event selected");
                 String token = dataAccountStorage.getString(getString(R.string.key_token), null);
-                presenter.handlePost(token, null, null, described, null);
+                presenter.handlePost(token, described, null, null, null);
                 break;
             default:
                 break;

@@ -1,10 +1,10 @@
-package com.example.facebookapp.data.model;
+package com.example.facebookapp.data.model.account;
 
 import com.example.facebookapp.data.model.account.AccountModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BaseResponse {
+public class BaseUserResponse {
     @SerializedName("code")
     @Expose
     protected String code;

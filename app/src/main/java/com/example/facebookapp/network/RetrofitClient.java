@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://project-facebook-clone.herokuapp.com/it4788";
+    private static final String BASE_URL = "https://project-facebook-clone.herokuapp.com/it4788/";
 
     private static Retrofit retrofitClient = null;
 

@@ -2,7 +2,7 @@ package com.example.facebookapp.data.repository.singup.confirm;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.BaseResponse;
+import com.example.facebookapp.data.model.account.BaseUserResponse;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
 import com.example.facebookapp.network.RetrofitClient;
@@ -17,9 +17,9 @@ public class ConfirmRepositoryImpl implements ConfirmRepository {
 
     @Override
     public void getSignUp(String user, String password, String uuid, OnDataLoadedListener<String> callback) {
-        apiService.signUp(user, password, uuid).enqueue(new Callback<BaseResponse>() {
+        apiService.signUp(user, password, uuid).enqueue(new Callback<BaseUserResponse>() {
             @Override
-            public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+            public void onResponse(Call<BaseUserResponse> call, Response<BaseUserResponse> response) {
                 if (response.isSuccessful()) {
                     switch (response.body().getCode()) {
                         case ResponseCode.OK:
@@ -37,7 +37,7 @@ public class ConfirmRepositoryImpl implements ConfirmRepository {
             }
 
             @Override
-            public void onFailure(Call<BaseResponse> call, Throwable t) {
+            public void onFailure(Call<BaseUserResponse> call, Throwable t) {
 
             }
         });

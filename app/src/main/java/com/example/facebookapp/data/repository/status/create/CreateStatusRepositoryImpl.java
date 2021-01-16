@@ -1,7 +1,8 @@
 package com.example.facebookapp.data.repository.status.create;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.BaseResponse;
+import com.example.facebookapp.data.model.account.BaseUserResponse;
+import com.example.facebookapp.data.model.post.BasePostResponse;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
 import com.example.facebookapp.network.RetrofitClient;
@@ -19,6 +20,22 @@ public class CreateStatusRepositoryImpl implements CreateStatusRepository {
 
     @Override
     public void getApiAddPost(String token, String described, String status, List<File> image, File video, OnDataLoadedListener<String> callback) {
+        apiService.addPost(token, described, status).enqueue(new Callback<BasePostResponse>() {
+            @Override
+            public void onResponse(Call<BasePostResponse> call, Response<BasePostResponse> response) {
+                switch (response.body().getCode()) {
+                    case ResponseCode.OK:
+                        callback.onSuccess("Đăng bài thành công!");
+                        break;
+                    default:
+                        break;
+                }
+            }
 
+            @Override
+            public void onFailure(Call<BasePostResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

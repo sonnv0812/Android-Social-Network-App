@@ -1,4 +1,4 @@
-package com.example.facebookapp.data.model;
+package com.example.facebookapp.data.model.notification;
 
 public class NotificationModel {
     private String avaNotification;

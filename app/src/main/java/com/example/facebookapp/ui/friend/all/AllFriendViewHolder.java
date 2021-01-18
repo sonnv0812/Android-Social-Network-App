@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.facebookapp.R;
 import com.example.facebookapp.listener.FriendUserClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
@@ -55,6 +56,6 @@ public class AllFriendViewHolder extends RecyclerView.ViewHolder {
             textSameFriend.setText(friend.getSameFriend() + " bạn chung");
 
         textFriendName.setText(friend.getUsername());
-        Picasso.get().load(friend.getAvatar()).into(imageFriendAvatar);
+        Glide.with(itemView).load(friend.getAvatar()).into(imageFriendAvatar);
     }
 }

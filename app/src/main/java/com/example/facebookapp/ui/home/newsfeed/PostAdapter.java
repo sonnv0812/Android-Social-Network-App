@@ -1,17 +1,14 @@
-package com.example.facebookapp.ui.home.newfeed;
+package com.example.facebookapp.ui.home.newsfeed;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.model.post.Post;
-import com.example.facebookapp.listener.LoadMore;
 import com.example.facebookapp.listener.PostClickListener;
 
 import java.util.ArrayList;
@@ -22,39 +19,16 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Post> posts = new ArrayList<>();
     private final int VIEW_TYPE_ITEM = 0;
     private final int VIEW_TYPE_LOADING = 1;
-    private LoadMore loadMore;
-    private boolean isLoading;
     private PostClickListener listener;
-    private int visibleThreshold = 5;
-    private int lastVisibleItem, totalItemCount;
 
-    public PostAdapter(RecyclerView recyclerView, List<Post> posts, PostClickListener listener) {
+    public PostAdapter(List<Post> posts, PostClickListener listener) {
         this.posts = posts;
         this.listener = listener;
-
-        final LinearLayoutManager linearLayoutManager = (LinearLayoutManager)recyclerView.getLayoutManager();
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                totalItemCount = linearLayoutManager.getItemCount();
-                lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
-                if (!isLoading && totalItemCount <= lastVisibleItem + visibleThreshold) {
-                    if (loadMore != null)
-                        loadMore.onLoadMore();
-                    isLoading = true;
-                }
-            }
-        });
     }
 
     @Override
     public int getItemViewType(int position) {
         return posts.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
-    }
-
-    public void setLoadMore(LoadMore loadMore) {
-        this.loadMore = loadMore;
     }
 
     @NonNull
@@ -96,9 +70,5 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         posts.addAll(morePosts);
         int newSize = getItemCount();
         notifyItemRangeChanged(oldSize, newSize);
-    }
-
-    public void setLoaded() {
-        isLoading = false;
     }
 }

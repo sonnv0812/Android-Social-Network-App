@@ -24,7 +24,6 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
 
     private String token;
     private SuggestFriendContract.Presenter presenter;
-    private RecyclerView recyclerSuggestFriend;
     private SuggestFriendAdapter adapter;
     private List<Friend> friendList = new ArrayList<>();
 
@@ -32,17 +31,21 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_friend);
+        RecyclerView recyclerSuggestFriend = findViewById(R.id.recyclerview_suggest_friend);
+        initViewAndData();
+        initPresenter();
+        presenter.handlerGetSuggestList(token);
+        recyclerSuggestFriend.setAdapter(adapter);
+        recyclerSuggestFriend.setItemAnimator(new ScaleInAnimator());
+    }
 
+    private void initViewAndData() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.actionbar_suggest_friend);
         actionBar.setDisplayHomeAsUpEnabled(true);
         SharedPreferences dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
 
-        initPresenter();
-        presenter.handlerGetSuggestList(token);
-
-        recyclerSuggestFriend = findViewById(R.id.recyclerview_suggest_friend);
         adapter = new SuggestFriendAdapter(friendList, new FriendSuggestClickListener() {
             @Override
             public void onClick(int position) {
@@ -60,8 +63,6 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
                 adapter.notifyItemRemoved(position);
             }
         });
-        recyclerSuggestFriend.setAdapter(adapter);
-        recyclerSuggestFriend.setItemAnimator(new ScaleInAnimator());
     }
 
     private void initPresenter() {

@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.facebookapp.R;
 import com.example.facebookapp.listener.FriendSuggestClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
@@ -54,6 +55,6 @@ public class SuggestFriendViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Friend friend) {
         textFriendName.setText(friend.getUsername());
-        Picasso.get().load(friend.getAvatar()).into(imageFriendAvatar);
+        Glide.with(itemView).load(friend.getAvatar()).into(imageFriendAvatar);
     }
 }

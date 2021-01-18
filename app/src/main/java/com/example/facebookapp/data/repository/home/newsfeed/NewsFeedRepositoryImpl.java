@@ -1,4 +1,6 @@
-package com.example.facebookapp.data.repository.home.newfeed;
+package com.example.facebookapp.data.repository.home.newsfeed;
+
+import android.util.Log;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
 import com.example.facebookapp.data.model.post.BasePostResponse;
@@ -14,7 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewFeedRepositoryImpl implements NewFeedRepository {
+public class NewsFeedRepositoryImpl implements NewsFeedRepository {
 
     private ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
 
@@ -50,7 +52,8 @@ public class NewFeedRepositoryImpl implements NewFeedRepository {
 
             @Override
             public void onFailure(Call<BasePostResponse> call, Throwable t) {
-
+                Log.v("RESPONSE", t.getMessage());
+//                callback.onFailure(new Exception(t.getMessage()));
             }
         });
     }

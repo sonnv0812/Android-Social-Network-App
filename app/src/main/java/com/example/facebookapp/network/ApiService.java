@@ -56,11 +56,11 @@ public interface ApiService {
                                    @Query("described") String described,
                                    @Query("status") String status);
 
-    @POST("get_post")
+    @POST("post/get_post")
     Call<BasePostResponse> getPost(@Query("token") String token,
                                    @Query("id") int id);
 
-    @POST("get_list_post")
+    @POST("post/get_list_post")
     Call<BasePostResponse> getListPosts(@Query("token") String token,
                                         @Query("user_id") String userId,
                                         @Query("last_id") String lastId,

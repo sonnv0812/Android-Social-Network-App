@@ -1,4 +1,4 @@
-package com.example.facebookapp.ui.home.newfeed;
+package com.example.facebookapp.ui.home.newsfeed;
 
 import android.view.View;
 import android.widget.Button;

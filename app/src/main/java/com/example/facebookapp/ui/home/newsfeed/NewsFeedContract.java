@@ -1,10 +1,10 @@
-package com.example.facebookapp.ui.home.newfeed;
+package com.example.facebookapp.ui.home.newsfeed;
 
 import com.example.facebookapp.data.model.post.Post;
 
 import java.util.List;
 
-public interface NewFeedContract {
+public interface NewsFeedContract {
     interface View {
         void updateNewFeed(List<Post> posts);
 

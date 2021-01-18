@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.facebookapp.config.FragmentHome;
 import com.example.facebookapp.ui.home.friend.FriendFragment;
-import com.example.facebookapp.ui.home.newfeed.NewFeedFragment;
+import com.example.facebookapp.ui.home.newsfeed.NewsFeedFragment;
 import com.example.facebookapp.ui.home.menu.MenuFragment;
 import com.example.facebookapp.ui.home.notification.NotificationFragment;
 import com.example.facebookapp.ui.home.video.VideoFragment;
@@ -25,7 +25,7 @@ public class PagerHomeAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case FragmentHome.HOME:
-                fragment = new NewFeedFragment();
+                fragment = new NewsFeedFragment();
                 break;
             case FragmentHome.VIDEO:
                 fragment = new VideoFragment();

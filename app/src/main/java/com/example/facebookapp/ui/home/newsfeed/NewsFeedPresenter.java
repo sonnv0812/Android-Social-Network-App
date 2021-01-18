@@ -1,17 +1,17 @@
-package com.example.facebookapp.ui.home.newfeed;
+package com.example.facebookapp.ui.home.newsfeed;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
 import com.example.facebookapp.data.model.post.Post;
-import com.example.facebookapp.data.repository.home.newfeed.NewFeedRepository;
+import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepository;
 
 import java.util.List;
 
-public class NewFeedPresenter implements NewFeedContract.Presenter {
+public class NewsFeedPresenter implements NewsFeedContract.Presenter {
 
-    private NewFeedContract.View view;
-    private NewFeedRepository repository;
+    private NewsFeedContract.View view;
+    private NewsFeedRepository repository;
 
-    public NewFeedPresenter(NewFeedContract.View view, NewFeedRepository repository) {
+    public NewsFeedPresenter(NewsFeedContract.View view, NewsFeedRepository repository) {
         this.view = view;
         this.repository = repository;
     }

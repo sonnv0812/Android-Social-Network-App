@@ -7,16 +7,24 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_home"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_avatar" />
+        app:layout_constraintTop_toBottomOf="@+id/image_avatar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:listitem="@layout/item_post"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/text_status_home"
@@ -25,6 +33,7 @@
         android:text="Bạn đang nghĩ gì?"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/colorBlack"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center|left"

@@ -22,7 +22,6 @@ import java.util.List;
 public class AllFriendActivity extends AppCompatActivity implements AllFriendContract.View {
 
     private String token, userId;
-    private SharedPreferences dataAccountStorage;
     private AllFriendContract.Presenter presenter;
     private AllFriendAdapter adapter;
     private RecyclerView recyclerUserFriend;
@@ -32,17 +31,20 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_friend);
+        recyclerUserFriend = findViewById(R.id.recyclerview_all_friend);
+        initViewAndData();
+        initPresenter();
+        presenter.handleGetUserFriend(token, userId);
+        recyclerUserFriend.setAdapter(adapter);
+    }
 
+    private void initViewAndData() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.actionbar_all_friend);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
+        SharedPreferences dataAccountStorage = getSharedPreferences(getString(R.string.storage_data_account), Context.MODE_PRIVATE);
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
         userId = dataAccountStorage.getString(getString(R.string.key_id), null);
-
-        recyclerUserFriend = findViewById(R.id.recyclerview_all_friend);
-        initPresenter();
-        presenter.handleGetUserFriend(token, userId);
 
         adapter = new AllFriendAdapter(friendList, new FriendUserClickListener() {
             @Override
@@ -56,8 +58,6 @@ public class AllFriendActivity extends AppCompatActivity implements AllFriendCon
                 popupFriendSetup.show(getSupportFragmentManager(), popupFriendSetup.getTag());
             }
         });
-
-        recyclerUserFriend.setAdapter(adapter);
     }
 
     private void initPresenter() {

@@ -1,9 +1,10 @@
-package com.example.facebookapp.data.model.post;
+package com.example.facebookapp.data.model.like;
 
+import com.example.facebookapp.data.model.post.DataPost;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BasePostResponse {
+public class BaseLikeResponse {
     @SerializedName("code")
     @Expose
     private String code;
@@ -14,7 +15,7 @@ public class BasePostResponse {
 
     @SerializedName("data")
     @Expose
-    private DataPost data;
+    private Data data;
 
     public String getCode() {
         return code;
@@ -24,7 +25,7 @@ public class BasePostResponse {
         return message;
     }
 
-    public DataPost getData() {
+    public Data getData() {
         return data;
     }
 }

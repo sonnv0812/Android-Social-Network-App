@@ -58,6 +58,7 @@
         android:layout_marginEnd="@dimen/margin_all_8dp"
         android:layout_marginRight="@dimen/margin_all_8dp"
         android:src="@drawable/ic_other"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_all_8dp"
-        android:src="@drawable/ic_like"
+        android:src="@drawable/ic_like_black"
         app:layout_constraintStart_toStartOf="@+id/text_post"
         app:layout_constraintTop_toBottomOf="@+id/container_videoPicture" />
 
@@ -83,7 +84,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_all_8dp"
-        android:text=""
+        android:text="1"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/image_ic_like"
         app:layout_constraintStart_toEndOf="@+id/image_ic_like"
         app:layout_constraintTop_toTopOf="@+id/image_ic_like" />
@@ -107,7 +109,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/height_post_button"
         android:layout_marginTop="@dimen/margin_all_8dp"
-        android:background="@color/colorWhite"
+        android:background="@drawable/button_state"
         android:text="@string/menu_post_like"
         android:textColor="@color/like_button_color"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -118,7 +120,7 @@
         android:id="@+id/button_comment"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_post_button"
-        android:background="@color/colorWhite"
+        android:background="@drawable/button_state"
         android:text="@string/menu_post_comment"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -128,7 +130,7 @@
         android:id="@+id/button_share"
         android:layout_width="0dp"
         android:layout_height="@dimen/height_post_button"
-        android:background="@color/colorWhite"
+        android:background="@drawable/button_state"
         android:text="@string/menu_post_share"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -141,5 +143,16 @@
         android:background="#cccccc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_comment" />
+
+    <TextView
+        android:id="@+id/text_number_comment"
+        android:layout_margin="@dimen/margin_all_8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/image_ic_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/image_ic_like" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

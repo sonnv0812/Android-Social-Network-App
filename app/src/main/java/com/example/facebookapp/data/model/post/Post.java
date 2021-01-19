@@ -115,4 +115,12 @@ public class Post {
         this.author = author;
         this.canComment = canComment;
     }
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public void setIsLiked(int isLiked) {
+        this.isLiked = isLiked;
+    }
 }

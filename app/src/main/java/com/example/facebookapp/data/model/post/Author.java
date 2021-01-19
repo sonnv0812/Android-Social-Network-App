@@ -26,4 +26,9 @@ public class Author {
         return avatar;
     }
 
+    public Author(String id, String name, String avatar) {
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
+    }
 }

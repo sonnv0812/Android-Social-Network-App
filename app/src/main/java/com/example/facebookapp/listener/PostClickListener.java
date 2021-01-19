@@ -4,4 +4,6 @@ public interface PostClickListener {
     void onClick(int position);
 
     void onLikeClick(int position);
+
+    void onActionClick(int position);
 }

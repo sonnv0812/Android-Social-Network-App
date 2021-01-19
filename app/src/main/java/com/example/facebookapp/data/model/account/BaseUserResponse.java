@@ -17,10 +17,6 @@ public class BaseUserResponse {
     @Expose
     protected String token;
 
-//    @SerializedName("data")
-//    @Expose
-//    private ListUser requestFriend;
-
     public String getCode() {
         return code;
     }
@@ -33,7 +29,4 @@ public class BaseUserResponse {
         return accountModel;
     }
 
-//    public ListUser getRequestFriend() {
-//        return requestFriend;
-//    }
 }

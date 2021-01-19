@@ -1,5 +1,6 @@
-package com.example.facebookapp.ui.status.create.bottomsheet;
+package com.example.facebookapp.ui.bottomsheet;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,14 +39,14 @@ public class PopupBackCreateStatus extends BottomSheetDialogFragment implements 
         constraintContinue.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.constraint_save_draft:
                 break;
             case R.id.constraint_quit_post:
-                Intent intent = new Intent(getContext(), HomeActivity.class);
-                startActivity(intent);
+                getActivity().onBackPressed();
                 break;
             case R.id.constraint_continue_edit:
                 dismiss();

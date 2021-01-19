@@ -14,7 +14,7 @@ import com.example.facebookapp.listener.FriendUserClickListener;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.data.repository.friend.all.AllFriendRepository;
 import com.example.facebookapp.data.repository.friend.all.AllFriendRepositoryImpl;
-import com.example.facebookapp.ui.friend.all.bottomsheet.PopupFriendSetup;
+import com.example.facebookapp.ui.bottomsheet.PopupFriendSetup;
 
 import java.util.ArrayList;
 import java.util.List;

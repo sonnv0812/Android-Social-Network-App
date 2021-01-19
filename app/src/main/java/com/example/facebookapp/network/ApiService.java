@@ -2,6 +2,7 @@ package com.example.facebookapp.network;
 
 import com.example.facebookapp.data.model.account.BaseUserResponse;
 import com.example.facebookapp.data.model.friend.BaseFriendResponse;
+import com.example.facebookapp.data.model.like.BaseLikeResponse;
 import com.example.facebookapp.data.model.post.BasePostResponse;
 
 import retrofit2.Call;
@@ -45,25 +46,20 @@ public interface ApiService {
                                                     @Query("index") int index,
                                                     @Query("count") int count);
 
-    @POST("change_password")
-    Call<BaseFriendResponse> changePassword(@Query("token") String token,
-                                            @Query("password") String password,
-                                            @Query("new_password") String newPassword);
-
+    @POST("post/get_list_post")
+    Call<BasePostResponse> getListPost(@Query("token") String token,
+                                       @Query("user_id") String userId,
+                                       @Query("last_id") String lastId,
+                                       @Query("index") int index,
+                                       @Query("count") int count);
 
     @POST("post/add_post")
     Call<BasePostResponse> addPost(@Query("token") String token,
                                    @Query("described") String described,
                                    @Query("status") String status);
 
-    @POST("post/get_post")
-    Call<BasePostResponse> getPost(@Query("token") String token,
-                                   @Query("id") int id);
+    @POST("post/like")
+    Call<BaseLikeResponse> likePost(@Query("token") String token,
+                                    @Query("id") String postId);
 
-    @POST("post/get_list_post")
-    Call<BasePostResponse> getListPosts(@Query("token") String token,
-                                        @Query("user_id") String userId,
-                                        @Query("last_id") String lastId,
-                                        @Query("index") int index,
-                                        @Query("count") int count);
 }

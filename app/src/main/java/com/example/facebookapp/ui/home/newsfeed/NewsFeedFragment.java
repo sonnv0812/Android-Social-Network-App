@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ import com.example.facebookapp.data.model.post.Post;
 import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepository;
 import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepositoryImpl;
 import com.example.facebookapp.listener.PostClickListener;
+import com.example.facebookapp.ui.bottomsheet.PopupPostAction;
 import com.example.facebookapp.ui.status.create.CreateStatusActivity;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 
@@ -59,6 +62,16 @@ public class NewsFeedFragment extends Fragment
         recyclerHome = root.findViewById(R.id.recyclerview_home);
         recyclerHome.setAdapter(adapter);
         initPresenter();
+        swipeRefreshHome.setOnRefreshListener(this);
+        swipeRefreshHome.post(new Runnable() {
+            @Override
+            public void run() {
+                if (swipeRefreshHome != null)
+                    swipeRefreshHome.setRefreshing(true);
+
+                refreshNewFeed();
+            }
+        });
         initScrollListener();
         return root;
     }
@@ -84,9 +97,16 @@ public class NewsFeedFragment extends Fragment
 
             @Override
             public void onLikeClick(int position) {
+                presenter.likePost(token, posts.get(position).getId(), position, posts.get(position).getLike());
+            }
 
+            @Override
+            public void onActionClick(int position) {
+                PopupPostAction popupPostAction = new PopupPostAction();
+                popupPostAction.show(getFragmentManager(), popupPostAction.getTag());
             }
         });
+
     }
 
     @Override
@@ -100,26 +120,34 @@ public class NewsFeedFragment extends Fragment
                 startActivity(intent);
             }
         });
-        swipeRefreshHome.setOnRefreshListener(this);
-        swipeRefreshHome.post(new Runnable() {
-            @Override
-            public void run() {
-                if (swipeRefreshHome != null)
-                    swipeRefreshHome.setRefreshing(true);
-
-                refreshNewFeed();
-            }
-        });
     }
 
     @Override
-    public void updateNewFeed(List<Post> posts) {
+    public void initNewsFeed(List<Post> posts) {
         adapter.updateData(posts);
+        swipeRefreshHome.setRefreshing(false);
     }
 
     @Override
     public void showMessage(int msgResId) {
         Toast.makeText(getContext(), getString(msgResId), Toast.LENGTH_LONG).show();
+        swipeRefreshHome.setRefreshing(false);
+    }
+
+    @Override
+    public void loadMoreNews(List<Post> posts) {
+        adapter.addData(posts);
+        swipeRefreshHome.setRefreshing(false);
+    }
+
+    @Override
+    public void updateLiked(int position, int like, int isLike) {
+        Log.v("LIKE", like + " " + isLike);
+        posts.get(position).setLike(like);
+        posts.get(position).setIsLiked(isLike);
+        adapter.notifyItemChanged(position);
+
+        Log.v("LIKE", posts.get(position).getLike() + " " + posts.get(position).getIsLiked());
     }
 
     @Override
@@ -129,6 +157,7 @@ public class NewsFeedFragment extends Fragment
 
     private void refreshNewFeed() {
         count = 5;
+        posts.clear();
         presenter.requestGetPost(token, userId, null, 0, 5);
     }
 
@@ -137,6 +166,9 @@ public class NewsFeedFragment extends Fragment
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    isLoading = true;
+                }
             }
 
             @Override
@@ -159,6 +191,7 @@ public class NewsFeedFragment extends Fragment
         String lastId = posts.get(posts.size() - 1).getId();
         count += 5;
         presenter.requestGetPost(token, userId, lastId, posts.size(), count);
+        isLoading = false;
     }
 
 }

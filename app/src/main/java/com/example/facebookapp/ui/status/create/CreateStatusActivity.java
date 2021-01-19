@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.repository.status.create.CreateStatusRepository;
 import com.example.facebookapp.data.repository.status.create.CreateStatusRepositoryImpl;
-import com.example.facebookapp.ui.status.create.bottomsheet.PopupBackCreateStatus;
+import com.example.facebookapp.ui.bottomsheet.PopupBackCreateStatus;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 import com.squareup.picasso.Picasso;
 

@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.facebookapp.R;
+import com.example.facebookapp.ui.dialog.DeletePostDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class PopupPostAction extends BottomSheetDialogFragment {
@@ -35,7 +36,8 @@ public class PopupPostAction extends BottomSheetDialogFragment {
         constraintDeletePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                DeletePostDialog deletePostDialog = new DeletePostDialog();
+                deletePostDialog.show(getFragmentManager(), deletePostDialog.getTag());
             }
         });
 

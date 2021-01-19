@@ -13,4 +13,9 @@ public class HomePresenter implements HomeContract.Presenter {
         if (token == null)
             view.returnLogin();
     }
+
+    @Override
+    public void getInfo(String token, String userId) {
+
+    }
 }

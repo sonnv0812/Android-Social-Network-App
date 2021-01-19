@@ -28,7 +28,7 @@ import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepository;
 import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepositoryImpl;
 import com.example.facebookapp.listener.PostClickListener;
 import com.example.facebookapp.ui.bottomsheet.PopupPostAction;
-import com.example.facebookapp.ui.status.create.CreateStatusActivity;
+import com.example.facebookapp.ui.post.create.CreateStatusActivity;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
 
 import java.util.ArrayList;

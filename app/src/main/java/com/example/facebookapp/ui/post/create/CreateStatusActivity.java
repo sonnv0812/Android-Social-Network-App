@@ -1,4 +1,4 @@
-package com.example.facebookapp.ui.status.create;
+package com.example.facebookapp.ui.post.create;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;

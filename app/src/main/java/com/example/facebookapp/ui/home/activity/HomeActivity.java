@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.facebookapp.R;
 import com.example.facebookapp.config.FragmentHome;
+import com.example.facebookapp.data.model.account.AccountModel;
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 
@@ -81,6 +82,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
+    public void saveUserInfo(AccountModel account) {
+
+    }
+
+    @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportFragmentManager().popBackStack();
@@ -89,7 +95,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             Toast.makeText(this,"Please click BACK again to exit.", Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
-
                 @Override
                 public void run() {
                     doubleBackToExitPressedOnce = false;

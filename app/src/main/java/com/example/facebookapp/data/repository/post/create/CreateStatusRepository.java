@@ -1,4 +1,4 @@
-package com.example.facebookapp.data.repository.status.create;
+package com.example.facebookapp.data.repository.post.create;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,12 +27,14 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
     private SuggestFriendContract.Presenter presenter;
     private SuggestFriendAdapter adapter;
     private List<Friend> friendList = new ArrayList<>();
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_friend);
         RecyclerView recyclerSuggestFriend = findViewById(R.id.recyclerview_suggest_friend);
+        dialog = new ProgressDialog(this);
         initViewAndData();
         initPresenter();
         presenter.handlerGetSuggestList(token);
@@ -54,7 +57,8 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
 
             @Override
             public void onAddClick(int position) {
-
+                dialog.show();
+                presenter.handlerRequestFriend(token, friendList.get(position).getId(), position);
             }
 
             @Override
@@ -78,5 +82,18 @@ public class SuggestFriendActivity extends AppCompatActivity implements SuggestF
     @Override
     public void showMessage(int msgResId) {
         Toast.makeText(this, getString(msgResId), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showMessage(String msg, int position) {
+        dialog.dismiss();
+        friendList.remove(position);
+        adapter.notifyItemRemoved(position);
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showError(String msg) {
+
     }
 }

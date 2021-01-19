@@ -9,10 +9,10 @@
     android:background="@color/colorWhite">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView131"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Xóa bài viết?"
+        android:text="Bỏ thay đổi?"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,17 +23,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Bạn có thể chỉnh sửa bài viết nếu cần thay đổi"
+        android:text="Nếu bỏ bây giờ thì bạn sẽ mất mọi thay đổi trên bài viết này"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintStart_toStartOf="@+id/textView131"
+        app:layout_constraintTop_toBottomOf="@+id/textView131" />
 
     <Button
-        android:id="@+id/button_cancel"
+        android:id="@+id/button_remove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hủy"
+        android:text="Bỏ"
+        android:textColor="@color/colorBlue"
         android:layout_marginTop="24dp"
         android:elevation="0dp"
         android:background="?android:attr/selectableItemBackground"
@@ -44,19 +44,10 @@
         android:id="@+id/button_continue_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chỉnh sửa"
+        android:text="Tiếp tục chỉnh sửa"
+        android:padding="@dimen/padding_all_8dp"
         android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toStartOf="@+id/button_cancel"
-        app:layout_constraintTop_toTopOf="@+id/button_cancel" />
-
-    <Button
-        android:id="@+id/button_delete_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Xóa"
-        android:textColor="@color/colorBlue"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toStartOf="@+id/button_continue_edit"
-        app:layout_constraintTop_toTopOf="@+id/button_cancel" />
+        app:layout_constraintEnd_toStartOf="@+id/button_remove"
+        app:layout_constraintTop_toTopOf="@+id/button_remove" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

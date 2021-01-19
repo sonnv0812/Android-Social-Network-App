@@ -13,11 +13,15 @@ public interface NewsFeedContract {
         void loadMoreNews(List<Post> posts);
 
         void updateLiked(int position, int like, int isLike);
+
+        void nextEditUi(int position);
     }
 
     interface Presenter {
         void requestGetPost(String token, String userId, String lastId, int index, int count);
 
         void likePost(String token, String postId, int position, int currentLike);
+
+        void handleEdit(int position, int canEdit);
     }
 }

@@ -54,4 +54,10 @@ public class NewsFeedPresenter implements NewsFeedContract.Presenter {
             }
         });
     }
+
+    @Override
+    public void handleEdit(int position, int canEdit) {
+        if (canEdit == 1)
+            view.nextEditUi(position);
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SuggestRepository {
     void getSuggestFriend(String token, int index, int count, OnDataLoadedListener<List<Friend>> callback);
+
+    void getRequestFriend(String token, String userId, OnDataLoadedListener<String> callback);
 }

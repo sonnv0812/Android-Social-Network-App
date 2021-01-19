@@ -1,7 +1,6 @@
-package com.example.facebookapp.data.repository.status.create;
+package com.example.facebookapp.data.repository.post.create;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.model.account.BaseUserResponse;
 import com.example.facebookapp.data.model.post.BasePostResponse;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;

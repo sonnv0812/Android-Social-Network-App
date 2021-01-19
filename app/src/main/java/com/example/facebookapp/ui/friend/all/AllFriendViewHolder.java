@@ -56,6 +56,6 @@ public class AllFriendViewHolder extends RecyclerView.ViewHolder {
             textSameFriend.setText(friend.getSameFriend() + " bạn chung");
 
         textFriendName.setText(friend.getUsername());
-        Glide.with(itemView).load(friend.getAvatar()).into(imageFriendAvatar);
+        Picasso.get().load(friend.getAvatar()).into(imageFriendAvatar);
     }
 }

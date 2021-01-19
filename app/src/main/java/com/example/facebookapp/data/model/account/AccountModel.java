@@ -33,4 +33,10 @@ public class AccountModel extends BaseUserResponse {
         this.avatarLink = avatarLink;
         super.token = token;
     }
+
+    public AccountModel(String id, String username, String avatarLink) {
+        this.id = id;
+        this.username = username;
+        this.avatarLink = avatarLink;
+    }
 }

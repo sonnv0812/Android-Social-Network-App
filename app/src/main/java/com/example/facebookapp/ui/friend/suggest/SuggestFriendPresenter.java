@@ -30,4 +30,19 @@ public class SuggestFriendPresenter implements SuggestFriendContract.Presenter {
             }
         });
     }
+
+    @Override
+    public void handlerRequestFriend(String token, String userId, int position) {
+        repository.getRequestFriend(token, userId, new OnDataLoadedListener<String>() {
+            @Override
+            public void onSuccess(String data) {
+                view.showMessage(data, position);
+            }
+
+            @Override
+            public void onFailure(Exception exception) {
+                view.showError(exception.getMessage());
+            }
+        });
+    }
 }

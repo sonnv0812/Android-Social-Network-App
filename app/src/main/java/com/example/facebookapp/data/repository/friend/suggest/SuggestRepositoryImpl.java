@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
 import com.example.facebookapp.data.model.friend.BaseFriendResponse;
+import com.example.facebookapp.data.model.friend.BaseRequestFriend;
 import com.example.facebookapp.data.model.friend.Friend;
 import com.example.facebookapp.network.ApiService;
 import com.example.facebookapp.network.ResponseCode;
@@ -51,6 +52,28 @@ public class SuggestRepositoryImpl implements SuggestRepository {
             @Override
             public void onFailure(Call<BaseFriendResponse> call, Throwable t) {
 
+            }
+        });
+    }
+
+    @Override
+    public void getRequestFriend(String token, String userId, OnDataLoadedListener<String> callback) {
+        apiService.setRequestFriend(token, userId).enqueue(new Callback<BaseRequestFriend>() {
+            @Override
+            public void onResponse(Call<BaseRequestFriend> call, Response<BaseRequestFriend> response) {
+                switch (response.body().getCode()) {
+                    case ResponseCode.OK:
+                        callback.onSuccess("Gửi yêu cầu kết bạn thành công");
+                        break;
+                    default:
+                        callback.onFailure(new Exception("Lỗi"));
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseRequestFriend> call, Throwable t) {
+                callback.onFailure(new Exception("Lỗi"));
             }
         });
     }

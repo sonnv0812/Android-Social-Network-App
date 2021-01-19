@@ -9,9 +9,15 @@ public interface SuggestFriendContract {
         void updateSuggestList(List<Friend> friendList);
 
         void showMessage(int msgResId);
+
+        void showMessage(String msg, int position);
+
+        void showError(String msg);
     }
 
     interface Presenter {
         void handlerGetSuggestList(String token);
+
+        void handlerRequestFriend(String token, String userId, int position);
     }
 }

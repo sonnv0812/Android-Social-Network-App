@@ -55,6 +55,6 @@ public class SuggestFriendViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(Friend friend) {
         textFriendName.setText(friend.getUsername());
-        Glide.with(itemView).load(friend.getAvatar()).into(imageFriendAvatar);
+        Picasso.get().load(friend.getAvatar()).into(imageFriendAvatar);
     }
 }

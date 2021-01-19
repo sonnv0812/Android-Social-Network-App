@@ -6,7 +6,8 @@ import android.os.Bundle;
 
 import com.example.facebookapp.R;
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity
+        implements EditProfileContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

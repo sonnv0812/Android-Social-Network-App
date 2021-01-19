@@ -63,7 +63,7 @@ public class FriendRequestViewHolder extends RecyclerView.ViewHolder {
 
         textTimeAgo.setText(friend.getCreated());
         textFriendName.setText(friend.getUsername());
-        Glide.with(itemView.getContext()).load(friend.getAvatar()).into(imageFriendAvatar);
+        Picasso.get().load(friend.getAvatar()).into(imageFriendAvatar);
     }
 
 }

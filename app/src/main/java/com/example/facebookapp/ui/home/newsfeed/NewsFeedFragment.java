@@ -3,6 +3,7 @@ package com.example.facebookapp.ui.home.newsfeed;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,11 +27,16 @@ import com.example.facebookapp.R;
 import com.example.facebookapp.data.model.post.Post;
 import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepository;
 import com.example.facebookapp.data.repository.home.newsfeed.NewsFeedRepositoryImpl;
+import com.example.facebookapp.listener.PostActionListener;
 import com.example.facebookapp.listener.PostClickListener;
 import com.example.facebookapp.ui.bottomsheet.PopupPostAction;
 import com.example.facebookapp.ui.post.create.CreateStatusActivity;
 import com.example.facebookapp.ui.home.activity.HomeActivity;
+import com.example.facebookapp.ui.post.edit.EditPostActivity;
+import com.example.facebookapp.ui.profile.my.MyProfileActivity;
+import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,7 +94,7 @@ public class NewsFeedFragment extends Fragment
         token = dataAccountStorage.getString(getString(R.string.key_token), null);
         userId = dataAccountStorage.getString(getString(R.string.key_id), null);
         String avaLink = dataAccountStorage.getString(getString(R.string.key_avatar), null);
-        Glide.with(getContext()).load(avaLink).into(imageAvatar);
+        Picasso.get().load(avaLink).into(imageAvatar);
         adapter = new PostAdapter(posts, new PostClickListener() {
             @Override
             public void onClick(int position) {
@@ -102,7 +108,23 @@ public class NewsFeedFragment extends Fragment
 
             @Override
             public void onActionClick(int position) {
-                PopupPostAction popupPostAction = new PopupPostAction();
+                PopupPostAction popupPostAction = new PopupPostAction(new PostActionListener() {
+                    @Override
+                    public void onEditPost() {
+                        Log.v("POST", "EditPost click");
+                        presenter.handleEdit(position, posts.get(position).getCanEdit());
+                    }
+
+                    @Override
+                    public void onDeletePost() {
+
+                    }
+
+                    @Override
+                    public void onSetupNotify() {
+                        Log.v("POST", "Notify click");
+                    }
+                });
                 popupPostAction.show(getFragmentManager(), popupPostAction.getTag());
             }
         });
@@ -117,6 +139,14 @@ public class NewsFeedFragment extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CreateStatusActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MyProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -148,6 +178,13 @@ public class NewsFeedFragment extends Fragment
         adapter.notifyItemChanged(position);
 
         Log.v("LIKE", posts.get(position).getLike() + " " + posts.get(position).getIsLiked());
+    }
+
+    @Override
+    public void nextEditUi(int position) {
+        Intent intent = new Intent(getContext(), EditPostActivity.class);
+        intent.putExtra("described", posts.get(position).getDescribed());
+        startActivity(intent);
     }
 
     @Override

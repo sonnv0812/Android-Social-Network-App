@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.facebookapp.R;
 import com.example.facebookapp.data.model.post.Post;
 import com.example.facebookapp.listener.PostClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
 
@@ -63,7 +64,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindData(Post post) {
-        Glide.with(itemView).load(post.getAuthor().getAvatar()).into(imageAvatar);
+        Picasso.get().load(post.getAuthor().getAvatar()).into(imageAvatar);
         textName.setText(post.getAuthor().getName());
         textDescribed.setText(post.getDescribed());
         textNumberLike.setText(String.valueOf(post.getLike()));

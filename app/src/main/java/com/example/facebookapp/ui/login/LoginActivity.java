@@ -1,5 +1,6 @@
 package com.example.facebookapp.ui.login;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -63,6 +64,7 @@ public class LoginActivity extends AppCompatActivity
         editPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
@@ -100,6 +102,7 @@ public class LoginActivity extends AppCompatActivity
         btnCreateAccount.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         int id = v.getId();

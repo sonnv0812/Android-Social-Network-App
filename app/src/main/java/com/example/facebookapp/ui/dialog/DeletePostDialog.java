@@ -27,7 +27,7 @@ public class DeletePostDialog extends DialogFragment implements View.OnClickList
         View view = inflater.inflate(R.layout.dialog_delete_post, container, false);
         buttonCancel = view.findViewById(R.id.button_cancel);
         buttonDeletePost = view.findViewById(R.id.button_delete_post);
-        buttonEditPost = view.findViewById(R.id.button_edit_post);
+        buttonEditPost = view.findViewById(R.id.button_continue_edit);
         return view;
     }
 
@@ -48,7 +48,7 @@ public class DeletePostDialog extends DialogFragment implements View.OnClickList
                 break;
             case R.id.button_delete_post:
                 break;
-            case R.id.button_edit_post:
+            case R.id.button_continue_edit:
                 Intent intent = new Intent(getContext(), EditPostActivity.class);
                 startActivity(intent);
                 break;

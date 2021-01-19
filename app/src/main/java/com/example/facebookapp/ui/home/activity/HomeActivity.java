@@ -17,8 +17,12 @@ import android.widget.Toast;
 import com.example.facebookapp.R;
 import com.example.facebookapp.config.FragmentHome;
 import com.example.facebookapp.data.model.account.AccountModel;
+import com.example.facebookapp.data.repository.home.home.HomeRepository;
+import com.example.facebookapp.data.repository.home.home.HomeRepositoryImpl;
 import com.example.facebookapp.ui.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
+
+import org.jetbrains.annotations.NotNull;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View {
 
@@ -47,7 +51,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         tabLayout.getTabAt(FragmentHome.MENU).setIcon(R.drawable.ic_menu);
         String checkToken = dataAccountStorage.getString(getString(R.string.key_token), null);
 
-//        Log.v("TOKEN", checkToken);
         presenter.checkToken(checkToken);
     }
 
@@ -68,11 +71,13 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
             dataAccountStorage.edit().putString(getString(R.string.key_token), token).apply();
             dataAccountStorage.edit().putString(getString(R.string.key_id), id).apply();
             dataAccountStorage.edit().putString(getString(R.string.key_avatar), avatarLink).apply();
+            presenter.getInfo(token, id);
         }
     }
 
     private void initPresenter() {
-        presenter = new HomePresenter(this);
+        HomeRepository repository = new HomeRepositoryImpl();
+        presenter = new HomePresenter(this, repository);
     }
 
     @Override
@@ -82,8 +87,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
-    public void saveUserInfo(AccountModel account) {
-
+    public void saveUserInfo(@NotNull AccountModel account) {
+        dataAccountStorage.edit().putString(getString(R.string.key_username), account.getUsername()).apply();
     }
 
     @Override

@@ -34,7 +34,6 @@ public class SignUpActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Log.v("CHECK", "Event selected");
                 onBackPressed();
                 break;
 

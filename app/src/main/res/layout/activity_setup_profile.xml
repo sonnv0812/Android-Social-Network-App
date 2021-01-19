@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view4">
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/image_avatar"
             android:layout_width="@dimen/size_all_40dp"
             android:layout_height="@dimen/size_all_40dp"
             android:layout_margin="@dimen/margin_all_8dp"
@@ -139,9 +139,9 @@
             android:id="@+id/textView111"
             style="@style/text_bottom_sheet"
             android:text="Chế độ xem"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-            app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+            app:layout_constraintBottom_toBottomOf="@+id/image_avatar"
+            app:layout_constraintStart_toEndOf="@+id/image_avatar"
+            app:layout_constraintTop_toTopOf="@+id/image_avatar" />
 
         <View
             android:layout_width="0dp"
@@ -150,7 +150,7 @@
             android:background="#c5c5c5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+            app:layout_constraintTop_toBottomOf="@+id/image_avatar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

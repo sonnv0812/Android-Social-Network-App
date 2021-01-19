@@ -1,7 +1,7 @@
 package com.example.facebookapp.ui.post.create;
 
 import com.example.facebookapp.data.base.OnDataLoadedListener;
-import com.example.facebookapp.data.repository.status.create.CreateStatusRepository;
+import com.example.facebookapp.data.repository.post.create.CreateStatusRepository;
 import com.example.facebookapp.R;
 
 import java.io.File;
